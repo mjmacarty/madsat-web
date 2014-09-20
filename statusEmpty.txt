@@ -1,0 +1,10 @@
+	<status>
+	<process>
+		<id>...</id>
+		<type>...</type>
+		<query>...</query>
+		<location>...</location>
+		<state>Reading Plan XML</state>
+		<progress>Please Wait...</progress>
+	</process>
+</status>

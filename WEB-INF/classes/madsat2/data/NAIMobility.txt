@@ -1,0 +1,76 @@
+NAI	MOBILITY
+1	Go
+2	No Go
+3	Go
+4	Go
+5	Slow Go
+6	Go
+7	Slow Go
+8	Slow Go
+9	No Go
+10	Slow Go
+11	Go
+12	Go
+13	Slow Go
+14	No Go
+15	Slow Go
+16	Go
+17	Go
+18	Go
+19	Go
+20	Go
+21	Go
+22	Go
+23	Slow Go
+24	Slow Go
+25	No Go
+26	Go
+27	Slow Go
+28	Go
+29	Go
+30	Go
+31	Slow Go
+32	No Go
+33	Slow Go
+34	Go
+35	Go
+36	Slow Go
+37	Go
+38	Go
+39	Go
+40	No Go
+41	Slow Go
+42	Go
+43	Slow Go
+44	Go
+45	Slow Go
+46	Go
+47	Go
+48	Go
+49	Go
+50	Go
+51	Go
+52	Go
+53	Go
+54	Go
+55	No Go
+56	Slow Go
+57	Slow Go
+58	Slow Go
+59	Slow Go
+60	Slow Go
+61	No Go
+62	Slow Go
+63	Slow Go
+64	Go
+65	Go
+66	Slow Go
+67	Go
+68	Go
+69	Go
+70	Go
+71	Slow Go
+72	Go
+73	No Go
+74	Slow Go
+75	No Go

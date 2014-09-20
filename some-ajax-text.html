@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui-1.10.3.custom.css">        
+   
+    <title>text ajax()</title>
+    
+    <style>
+        body{
+            font-family:'lucida sans';
+        }
+    </style>
+    
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+    <script>
+        /*$(function(){
+          $(document).tooltip();  
+        })*/
+        
+         $(document).ready(function(){
+            $.get('inputQueryExamples.txt',function(data){
+                var queryString = data;
+                var cleanString = "";
+                var db = '';
+                $('#database-list').change(function(){
+                                      
+                   db = $('#database-list').val();
+                   
+                   // /(^DATABASE:.*\r\n)(^NL.*)/gm
+                   // http://regex101.com/r/mN4hS2
+                   
+                   regex = new RegExp('(^DATABASE:'+ db +'\r\n)(^NL.*)' ,'gm');
+                               
+                   cleanString = queryString.match(regex);
+                    
+                   var nlString = cleanString.map(function(el) {return el.replace('DATABASE:' + db,'');});
+                   nlString = nlString.map(function(el){return el.replace('NL:',''); });
+                   
+                   $('#query-list').autocomplete({
+                    source:nlString
+                    }); 
+                    
+                   $('#hover').autocomplete({
+                    source: nlString                    
+                    });
+        
+                 }); // end change
+                                         
+                
+                
+            });//end get
+            
+            $('#query-list').change(function(){
+                $('#query-list').attr('title','"' + $('#query-list').val() + '"');
+                    $(document).tooltip();
+                
+                
+            });
+            
+            //code to disable button
+            $('#click-here').click(function(){
+               this.disabled = true;
+            })
+            
+            $('#another-click').click(function(){
+               $('#click-here').removeAttr('disabled');
+            })
+            
+            $('li').hover(function(){
+               $(this).append($('<span>Help me spock</span>')),
+               
+               function(){
+                    $(this).find('span:last').remove();
+               }
+               });
+            
+            
+            
+         });
+         
+         /* tool tip
+          * 
+          * http://www.menucool.com/tooltip/javascript-tooltip
+          * <span class="tooltip" onmouseover="tooltip.pop(this, '<span class=\'red\'>Hi</span> there')">Hover me</span>
+          */
+         
+     </script>
+    
+    </head>
+    
+    
+    <body>
+        <div>
+          <h1>Select Database</h1>
+          <p>Limited functionality of 'tool tip'. To make 'tool tip' work:</p>
+          <ol>
+               <li>select database</li>
+               <li>click (do not tab into field)on select query field</li>
+               <li>move mouse cursor outside of field</li>
+               <li>select query, press enter, then tab out of field</li>
+               <li>when you hover mouse now it should display current query</li>
+               
+          </ol>
+          <section>
+        <h1>Select Database:</h1>
+        
+        <select id="database-list" style="width:150px;">
+            <option value="null">Select...</option>
+            <option value="datasite" >datasite</option>
+            <option value="geoquery">geoquery</option>
+            <option value="madsat">madsat</option>
+            
+        
+        </select>
+          
+            <h1>Enter natural language query</h1>
+        <input type="text" id="query-list" title="no query selected"><br>
+        <button id="click-here">Click it good!</button><br>
+        <button id="another-click">Another click</button><br>
+        <input type="input" id="hover">
+        
+        </div>
+        
+    </body>
+</html>

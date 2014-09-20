@@ -1,0 +1,133 @@
+/* madsat ui css 2013-10-13
+ * background color #5c9ccc
+ * icon color #d8e7f3
+ * border color #4297d7
+ */
+
+
+body,p li, h1{
+	font-family: 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.wrapper{
+	width: 1200px;
+	margin: 0 auto;
+	height: 700px;
+}
+
+.main{
+	margin: 0 auto;
+	width: 100%;
+	height: 100%;
+	/*border:  solid #000 1px;*/
+}
+
+#tabs{
+	float:left;
+	width: 33%;
+	height: 100%;
+	margin-right: 3px;
+}
+
+#query-results{
+	float:left;
+	width:30%;
+	padding: .5em 1em;
+	height: 100%;
+	border-radius: 4px;
+	border: solid #4297d7 1px;
+	background-color: #fcfdfd;
+	overflow: auto;
+}
+
+#graphicsDisplay{
+	float:right;
+	width:30%;
+	height: 100%;
+	padding: .5em 1em;
+	border-radius: 4px;
+	border: solid #4297d7 1px;
+	background-color: #fcfdfd;
+	overflow: auto;
+}
+
+
+li {
+	font-size: 12px;
+	list-style-type : none;
+}
+
+/* styles for selectable list (select the right translation)*/
+
+#selectable .ui-selecting {
+                background: #ccc;
+            }
+#selectable .ui-selected {
+                background: #4297d7;
+		}
+
+#ul-container{
+                width: 360px;
+		height: 175px;
+                white-space:nowrap;
+		overflow:  auto;
+		border-style: solid;
+                border-width: 1px;
+                border-radius: 4px;
+                border-color: #4297d7;
+		margin-top:  10px;
+		margin-bottom:  10px;
+                
+            }
+
+            #selectable{
+                
+                width:320px;
+                height: 125px;
+		
+	    }
+	    
+.translation{
+            list-style: none;
+            margin-left: -25px;
+            margin-bottom: 5px;
+            margin-top: 5px;		
+}
+
+
+/* styles for query-results table*/
+
+table,th, td{
+            border: 1px solid;
+            padding-left:2px;
+                        
+        }
+        td{
+            font-size:10pt;
+        }
+
+
+/* styles for bn nodes lists*/
+ul.outer{
+            list-style-image: url('../images/plus.png');
+            
+            
+        }
+        
+.minus{
+            list-style-image: url('../images/minus.png');
+            
+        }
+        
+ul.detail{
+            list-style: none;
+        }
+
+
+h1{
+	font-size: 16pt;
+	}
+
+.description{
+	font-size:10pt;
+}

@@ -1,0 +1,186 @@
+NAI	COLOR	DATE/TIME GROUP	FROM:	SIZE:	ACTIVITY:	LOCATION:	UNIT/UNIFORM:	TIME:	EQUIPMENT:	REMARKS:
+										
+	RED	ACETATE #1								
+23			JSTARS		Moving			16:27	2 Vehicles	overlaps blue 56
+30			JSTARS		NSR			16:30		overlaps blue 57
+34			JSTARS		Moving			16:39	4 Vehicles	overlaps blue 58
+34			T. Imint		NSR			18:52		overlaps blue 58
+	BLUE									
+59			JSTARS	40-60	significant milling	NAI 59		17:06	Vehicles	
+59			JSTARS		significant milling	near 59/60		13:00-19:00		
+60			JSTARS	30-60	significant milling	NAI 60		17:09	vehicles	
+58			JSTARS	4	incidental movement	NAI 58		16:39	vehicles	overlaps w/ red NAI 34
+58			JSTARS		NSR	NAI 58		18:52		
+57			JSTARS		NSR	NAI 57		16:34		overlaps w/red NAI 30
+56			JSTARS	2	incidental movement	NAI 56		16:29	vehicles	overlaps w/red NAI 23
+50			JSTARS-J-S		NSR			13:05		(J)(S) =? JSTARS?
+50			T. Imint		NSR			17:42		
+57			JSTARS -J-S		NSR			13:08		must be 52 or something else - 57 already noted
+57			T. Imint		NSR			17:44		must be 52 or something else - 57 already noted
+52			JSTARS		NSR			17:17		overlaps w/ red NAI 20
+52			T. Imint		NSR			18:05		overlaps w/ red NAI 20
+53			JSTARS		NSR			15:27		
+53			T. Imint		NSR			18:17		
+54			JSTARS		NSR			15:29		
+54			T. Imint		NSR			18:19		
+55			JSTARS	1	incidental movement			15:33	vehicle 	overlaps w/red NAI 22
+55			T. Imint	1	digging			18:24	bulldozer	obsticle preparation
+55			T. Imint	1	NA			18:24	T-72	
+55			T. Imint	2	NA			18:24	trucks	
+55			T. Imint	2	NA			18:24	emplacements	dig ditches for tanks
+47			JSTARS		NSR			14:17		
+47			T. Imint		NSR			17:15		
+48			JSTARS		NSR			14:19		
+48			T. Imint		NSR			17:35		
+	GREEN									
+61			HQ(CI)		Partisan meeting	NAI 61		11:00	Don't know	
+63			JSTARS		NSR			15:42		
+62			JSTARS		NSR	NAI 62		15:22		
+71			JSTARS		NSR	NAI 71		16:37		
+64			JSTARS		NSR	NAI 64		16:29		
+	RED	ACETATE #2								
+Out of area			Radio direction finding		Reconaissance communication	25-24		11:45	 	Grid location
+15			LRS	15				19:00	"Minefield,15 Emplacements"	
+17			LRS	4				19:00	"Minefield,4 Emplacements"	
+34			LRS	18				19:00	"Art. ""2-S1"""	overlaps blue 38
+17			LRS	15				19:00	"Minefield,15 Emplacements"	
+29			LRS	3				19:00	Emplacements	
+23			LRS	4				19:00	Emplacements	overlaps blue 56
+44			UAV-1		NSR			15:00-19:00		
+45			UAV-1		NSR			 		
+11			UAV-1		NSR					
+10			UAV-1							
+9			UAV-1							
+6			UAV-1							
+3			UAV							
+2			UAV							
+4			UAV							
+1			UAV							
+5			UAV							
+7			UAV							
+8			UAV							
+32			UAV							
+33			UAV							
+	BLUE									
+47			UAV							
+49			UAV							
+53			UAV	4	emplaced			?	BMP's	
+53			UAV	3				?	emplacements	
+54			UAV	4	emplaced			?	BMP's	
+54			UAV	3				?	emplacements	
+55			UAV	6				?	emplacements	
+55			UAV	4				?	BMP's	
+55			UAV	1				?	T-72	
+55			UAV					?	minefield	
+49			UAV		NSR			15:00-19:00		
+18			UAV		NSR			15:00-19:00		
+18			UAV	1				?	BRDM vehicle	
+52			UAV	4				?	emplacements	
+52			UAV		NSR			?		
+56			LRS	4				19:00	emplacements	overlaps w/ red NAI 30
+57			LRS	3				19:00	emplacements	overlaps w/ red NAI 23
+58			LRS	18				19:00	2-S1 (artillery)	overlaps w/ red NAI 34
+59			LRS	>= 20				19:00	BMP's	a/o - what is this?
+59			LRS 	10				19:00	T-72	
+60			LRS	>= 20				19:00	BMP's	a/o - what is this?
+60			LRS 	10				19:00	T-72	
+	GREEN									
+61			Counter Intelligence Team		Partisan Meeting			9:00		"Results of Meeting, Majority Neutral, minority faction fights us"
+63			National IMINT		NSR			11:09		
+62			National IMINT		NSR			11:07		
+71			National IMINT		NSR			11:05		
+64			National IMINT		NSR			11:04		
+67			UAV - 1		NSR			15:00-19:00		
+68			Theater ELINT					11:24	Gundish Radar	
+67			UAV - 1		NSR					
+64			UAV - 1					15:00-19:00	"24xBMP, 8xT-72, 12xBM21"	
+68			UAV - 1					15:00-19:00	"30x2S-3, 8xBM21, 2xZSU23-4, 2xSA-13"	
+68			Theater ELINT					11:24	Gundish Radar	
+70			UAV - 1		NSR					
+	RED	ACETATE #3								
+31			T.SIGINT		Increasing C2 activity			19:00-22:00		
+34			T. SIGINT					20:08	Gundish radar	overlaps blue 58
+21			Bde. Scouts		defending			1:52	"3 BMP, 2 T72"	
+29			Lt. Infantry					5:20	"4 BMP, 2 tank"	
+28			Bde. Scouts		defending			1:52	"8 BMP, 2 T72"	
+40			T. comint		Increasing C2 activity			19:00-19:30		
+41			T. comint		Increasing C2 activity			19:00-19:30		
+41			JSTARS	20-30	significant milling			22:00	vehicles	
+31			Bde. Scouts		defending			6:00	"16 BMP, 4 T72, 3 BRDM, minefield"	
+	BLUE									
+50			JSTARS		NSR			21:00-03:00		
+57			JSTARS		NSR			21:00-03:00		
+47			JSTARS		NSR			21:00-03:00		
+49			JSTARS		NSR			21:00-03:00		
+48			JSTARS		NSR			21:00-03:00		
+53			JSTARS	3	incidental movement			21:00-03:00	vehicles	
+53			Bde. Scouts	3	defending			1:27	BMP's	
+54			JSTARS	2	incidental movement			21:00-03:00	vehicles	CHECK TIMES!
+55			JSTARS	4	incidental movement			21:00-03:00	vehicles	CHECK TIMES!
+21			Bde. Scouts	3				1:52	"3 BMPs, 1 T72"	NEAR AREA 55 (ALSO red 21 & 22)
+55			Bde. Scouts	2				1:15	2BMPs	NEAR AREA 55 (ALSO red 21 & 22)
+52			JSTARS	2	incidental movement			21:00-03:00	vehicles	overlaps w/ red NAI 23
+56			JSTARS	10	significant milling			21:00-03:00	vehicles	overlaps w/ red NAI 34
+58			JSTARS	40	significant milling			21:00-03:00	vehicles	overlaps w/ red NAI 20
+58			T. ELINT	1				20:08	Gundish radar	
+57			JSTARS		NSR			21:00-03:00		overlaps w/ 30?
+57			Lt. Infantry	4	figting			5:00	BMP's	
+57			Lt. Infantry	2	figting			5:00	tanks	
+59			JSTARS		NSR			21:00-03:00		
+60			JSTARS	20				23:30	vehicles	
+60			T Comint		increased C2 radio traffic			19:00-19:30		
+	GREEN									
+61			CI		NSR			5:00		
+70			JSTARS		NSR			21:00-03:00		
+67			JSTARS		NSR			21:00-03:00		
+66			JSTARS		NSR			21:00-03:00		
+68			Theater COMINT		Increased C2			19:00-19:30		
+68			JSTARS		significant milling			22:00	20-30 Vehicles	
+64			Theater COMINT		Increased C2			19:00-19:30		
+64			JSTARS		significant milling			22:00	20-30 Vehicles	
+	RED 	ACETATE #4								
+22			Bde. Scouts		(same)			7:00		overlaps blue 55
+31			Bde. Scouts		(same)			7:00		
+12			LRS					7:00	minefield	
+16			LRS		defending			7:00	"8 emplaced BMP, 3 emplaced T72"	
+17			LRS		defending			7:00	"2 BMP, 1 T72"	
+26			LRS		defending			7:00	"minefield, b.wire"	
+23			Lt. Infantry		defending			7:00	Minefiield	
+23			LRS		defending			7:00	"minefield, b.wire"	overlaps blue 56
+28			LRS		defending			7:00	"8 BMP, 3 T72"	west of 28
+28			LRS		defending			7:00	"14 BMP, 6T72"	southern end of 28
+28			Lt. Infantry		fire fighting			7:00	"16 BMP, 6 T72"	
+28			Lt. Infantry		defending			7:00	"10 BMP, 3T72"	northend end of 28
+30			Lt. Infantry		fire fighting			7:00	"4 BMP, 2 T72"	
+30			LRS		defending			7:00	2 BMP	
+"36,37"			LRS		defending			7:00	"mines, 9 BMP"	
+65			Lt. Infantry		fire fighting			7:00	"3BMPs, 1T72"	
+	BLUE									
+53			Bde. Scouts ??							same???(in green letters)
+55			Bde. Scouts ??							same???(in green letters) - overlaps w/red NAI 22
+54			Bde. Scouts ??							same???(in green letters)
+56			LRS					7:00	minefield	overlaps w/ red NAI 23
+56			LRS					7:00	wire	overlaps w/ red NAI 23
+59			UAV-2		NSR			7:45		
+60			UAV-2	~15				7:45	tanks	
+60			UAV-2	~5				7:45	BRDM's	
+60			LRS					7:00	camoufl. Nets	
+60			LRS	>= 2				7:00	T-72	
+60			LRS	1				7:00	BRDM's	
+	GREEN									
+64			UAV-2					7:45	lots of howitzer	
+64			LRS					7:00	"> 24xS.P.Howitzer, 2xZSU23-4, 12xBM21"	
+68			LRS					7:00	same as previous	
+	RED	ACETATE #5								
+18			Bde. Scouts		"partisan raid against 3rd Mech. BN, TOC=minor damage, S2 killed, 7 partisans surrender."			10:45		
+										
+										
+	BLUE									
+58			JSTARS		NSR			11:08		overlaps w/ red NAI 34
+60			UAV-2	20				10:00	T-72	
+60			UAV-2	5				10:00	BRDM's w/ AT-S	anti tank guns
+60			JSTARS	>20	milling			10:55	 	
+	GREEN		 		 					
+61			3rd Bat. Scouts		Partisan against 3rd Mech Batt			10:45	"28x253, 18xBM21, 2xZSU23-5, 2xSA13"	"TOC minor damaged, 52 persons killed, 7 partisan surrender"
+64			JSTARS	>20	milling			10:55	 	
+64			UAV-2					10:00	"28x253, 18xBM21, 2xZSU23-5, 2xSA13"	same as 64

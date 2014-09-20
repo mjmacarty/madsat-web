@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bn>
+    <node>
+        <name>Seizure_of_critical_nuclear_ma</name>
+        <state prob="0.7926888883078169">Yes</state>
+        <state prob="0.20731111169218297">No</state>
+    </node>
+    <node>
+        <name>Recruitment_of_nuclear_special</name>
+        <state prob="0.91">Yes</state>
+        <state prob="0.09">No</state>
+    </node>
+    <node>
+        <name>Development_in_civilian_nuclea</name>
+        <state prob="0.4816304169335966">Yes</state>
+        <state prob="0.5183695830664035">No</state>
+    </node>
+    <node>
+        <name>Iran_has_enough_uranium_on_hand</name>
+        <state prob="0.7445376338462746">Yes</state>
+        <state prob="0.2554623661537255">No</state>
+    </node>
+    <node>
+        <name>High_Tech_R_and_D</name>
+        <state prob="1.0">Yes</state>
+        <state prob="0.0">No</state>
+    </node>
+    <node>
+        <name>Equipment_purchase_required_by</name>
+        <state prob="0.6436473152300392">Yes</state>
+        <state prob="0.35635268476996096">No</state>
+    </node>
+    <node>
+        <name>Infrastructure_building_requir</name>
+        <state prob="0.5116726626747029">Yes</state>
+        <state prob="0.48832733732529715">No</state>
+    </node>
+    <node>
+        <name>Will_to_develop_long_range_pro</name>
+        <state prob="0.5404200713846797">Yes</state>
+        <state prob="0.45957992861532027">No</state>
+    </node>
+    <node>
+        <name>Purchase_of_enriched_materials</name>
+        <state prob="0.5996871363761163">Yes</state>
+        <state prob="0.40031286362388374">No</state>
+    </node>
+    <node>
+        <name>Development_of_long_range_prop</name>
+        <state prob="0.590267104213788">Yes</state>
+        <state prob="0.40973289578621197">No</state>
+    </node>
+    <node>
+        <name>Development_of_nuclear_power</name>
+        <state prob="0.8951815341169088">Yes</state>
+        <state prob="0.10481846588309125">No</state>
+    </node>
+    <node>
+        <name>Secret_construction_of_nuclear</name>
+        <state prob="0.8682351249231895">Yes</state>
+        <state prob="0.13176487507681042">No</state>
+    </node>
+    <node>
+        <name>Will_to_develop_nuclear_power</name>
+        <state prob="0.5600844914822126">Yes</state>
+        <state prob="0.4399155085177874">No</state>
+    </node>
+    <node>
+        <name>Will_to_cooperate_in_nuclear_a</name>
+        <state prob="0.6504287271039523">Yes</state>
+        <state prob="0.3495712728960477">No</state>
+    </node>
+    <node>
+        <name>Proliferation_Alert_and_Nuclea</name>
+        <state prob="0.8552695229254645">Yes</state>
+        <state prob="0.1447304770745355">No</state>
+    </node>
+    <node>
+        <name>Scientific_cooperation</name>
+        <state prob="0.59">Yes</state>
+        <state prob="0.41">No</state>
+    </node>
+    <node>
+        <name>Indust_cooperation_in_presumed</name>
+        <state prob="0.5460084491482212">Yes</state>
+        <state prob="0.4539915508517787">No</state>
+    </node>
+    <node>
+        <name>Budget_allocation_to_nuclear_R</name>
+        <state prob="0.8203379659288507">Yes</state>
+        <state prob="0.17966203407114933">No</state>
+    </node>
+    <node>
+        <name>Industrial_cooperation_in_nucl</name>
+        <state prob="0.8291207983055944">Yes</state>
+        <state prob="0.17087920169440557">No</state>
+    </node>
+    <node>
+        <name>Suspicion_of_military_nuclear_</name>
+        <state prob="0.9075627230771243">Yes</state>
+        <state prob="0.09243727692287579">No</state>
+    </node>
+</bn>

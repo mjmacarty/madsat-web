@@ -1,0 +1,254 @@
+/* madsat ui css 2013-10-13
+ * background color #5c9ccc
+ * icon color #d8e7f3
+ * border color #4297d7
+ */
+
+
+body,p li, h1 div {
+	font-family: 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	display:block;
+}
+
+.wrapper{
+	width: 1300px;
+	margin: 0 auto;
+	height: 680px;
+}
+
+.main{
+	margin: 0 auto;
+	width: 100%;
+	height: 100%;
+	/*border:  solid #000 1px;*/
+}
+
+#tabs{
+	float:left;
+	width: 30%;
+	height: 689px;
+	margin-right: 3px;
+}
+
+#query-results-container{
+	float:left;
+	width:35.5%;
+	padding: 0.5em 0.5em;
+	height: 100%;
+	border-radius: 4px;
+	border: solid #A6C9E2 1px;
+	background-color: #fcfdfd;
+	overflow: auto;
+	margin-bottom:5px;
+}
+
+#query-results{
+	margin-top: 20px;
+	border-radius:4px;
+}
+
+/* Button section to click through results */
+#np-results{
+	
+	float: right;
+	display:inline;
+	width:auto;
+	height:auto;
+	border-radius: 4px;
+	/*border: solid #4297d7 1px;*/
+	background-color: #fcfdfd;
+	margin-bottom:0px;
+	
+	
+}
+
+#status{
+	float:right;
+	width:30.5%;
+	height:30%;
+	border-radius: 4px;
+	border: solid #A6C9E2 1px;
+	margin-bottom: 3px;
+	background-color: #fcfdfd;
+	padding:0.5em 0.5em;
+	/*padding-left:1em;*/
+	overflow:auto;
+}
+
+#progress{
+	display:inline;
+}
+
+#show-query{
+	margin-top:70px;
+}
+
+.show-query{
+	font-size:12pt;
+	font-style: italic;
+	color:#4297d7;
+}
+
+.status{
+	display:block;
+	display:inline;
+	line-height:1.25;
+	font-weight:700;
+	font-size:9pt;
+	color:#545454; 
+}
+
+.status-update{
+	color:#ff9933;
+	font-size:9pt;
+	font-weight:700;
+}
+
+#graphicsDisplay{
+	float:right;
+	width:30.5%;
+	height: 67%;
+	padding: 0.5em 0.5em;
+	border-radius: 4px;
+	border: solid #A6C9E2 1px;
+	background-color: #fcfdfd;
+	overflow: auto;
+}
+
+/* FORM CONTROLS need to add div to wrap select */
+
+textarea{
+	display:inline;
+	border: solid 1px #A6C9E2;
+	background-color: #fcfdfd;
+	border-radius:4px;
+	vertical-align:text-top !important;
+	overflow:auto;
+	padding-left:2px;
+	
+	margin:0;
+	  
+}
+
+
+.manage-sites {
+	float:center;
+	margin-bottom: 20px;
+	height:30px;
+	width: 300px;
+	font-size:16pt;
+	align:text-top;
+	padding:0;
+}
+
+::-webkit-input-placeholder { 
+	font-size:16pt;
+ }
+::-moz-placeholder { 
+	font-size:16pt; 
+	} /* firefox 19+ */
+:-ms-input-placeholder { 
+	font-size:16pt;; 
+	} /* ie */
+input:-moz-placeholder { 
+	font-size:16pt; 
+	}
+
+li {
+	font-size: 12px;
+	list-style-type : none;
+}
+
+/* styles for selectable list (select the right translation)*/
+
+#selectable .ui-selecting {
+                background: #ccc;
+            }
+#selectable .ui-selected {
+                background: #4297d7;
+		}
+
+#ul-container{
+                width: 360px;
+		height: 175px;
+                white-space:nowrap;
+		overflow:  auto;
+		border-style: solid;
+                border-width: 1px;
+                border-radius: 4px;
+                border-color: #A6C9E2;
+		margin-top:  10px;
+		margin-bottom:  10px;
+                
+            }
+
+            #selectable{
+                
+                width:320px;
+                height: 125px;
+		
+	    }
+	    
+.translation{
+            list-style: none;
+            margin-left: -25px;
+            margin-bottom: 5px;
+            margin-top: 5px;
+            line-height:1;		
+}
+
+
+/* styles for query-results table*/
+
+table {
+	width:100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+	border-radius: 4px;
+	overflow:scroll;
+}
+table,th, td{
+            border: 1px solid #A6C9E2;
+            padding-left:2px;
+                        
+        }
+        
+        th{
+        	/*background-color:#4297d7;*/
+        	background: url('images/ui-bg_gloss-wave_55_5c9ccc_500x100.png') repeat-x scroll 50% 50% #5C9CCC;
+        	color: #ebf1ff; 
+        }
+        
+        td{
+            font-size:10pt;
+            word-wrap:break-word;
+            padding-left:2px;
+            /*overflow:hidden;*/
+        }
+
+
+/* styles for bn nodes lists*/
+ul.outer{
+            list-style-image: url('../images/plus.png');
+            
+            
+        }
+        
+.minus{
+            list-style-image: url('../images/minus.png');
+            
+        }
+        
+ul.detail{
+            list-style: none;
+        }
+
+
+h1{
+	font-size: 16pt;
+	display:inline;
+	}
+
+.description{
+	font-size:10pt;
+}

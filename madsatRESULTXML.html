@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+    <title>MADSAT User Interface</title>
+    
+    <link rel="stylesheet"  type="text/css" href="styles/jquery-ui-1.10.3.custom.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/madsat.css"/>
+    <script type="text/javascript" src="books/javascript/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="books/javascript/jquery-ui-1.10.3/js/jquery-ui-1.10.3.custom.js"></script>
+    
+    <script type="text/javascript">
+    // jquery-ui places tabs on page
+       $(document).ready(function(){
+            $("#tabs").tabs();
+		
+		//clear panels when a different tab is selected	
+		$('#tabs li a').click(function(){
+		
+			$.post('deleteFiles.jsp');
+		  $('#query-results').html('<h1>Query Results</h1>' +
+	'<p>Select query from Library tab or Analytics tab to display results.</p>');
+		  
+		  $('#graphicsDisplay').html('<h1>Geospatial Area of Interest</h1>' +
+    '<p>This panel will display, if relevant, a graphic of interest.')
+		  
+		  }); //end click for clearing panels	
+                    
+        }); //end tab
+    
+    
+    
+    //jquery-ui for autocomplete field in constrained
+    	$(document).ready(function(){
+    		var list = ["Work in progress" ,"Values will be popluated intelligently", "Based on user input","Functionality to be demonstrated at one year demo"];
+    		$("#constrained_text").autocomplete({
+    			source : list
+    		});
+    	});
+    	
+    
+        
+    </script>
+    
+</head>
+
+<body>
+<!-- tabbed UI component allows user to select all preferences before execution -->    
+<div id="tabs">
+    <ul>
+        <li><a href="#tabs-1">Constrained</a></li>
+        <li><a href="#tabs-2">NLQ</a></li>
+        <li><a href="#tabs-3">Keyword</a></li>
+        <li><a href="#tabs-4">SQL</a></li>
+        <li><a href="#tabs-5">Library</a></li>
+	<li><a href="#tabs-6">Analytics</a></li>
+    </ul>
+    
+    <!-- Content for each tab -->
+    
+    <!-- constrained query tab -->
+    <div id="tabs-1">
+	    <h1>Constrained Natural Language Interface</h1>	
+	   <p class="description">User may begin entering a query in natural language. 
+               Each successive word typed by the user will be constrained by the system 
+               based on the context. For example, if user types "Display all the..." the next word 
+               or string will be based on attributes of available tables. </p>
+	    <label for="constrained_text">Enter query:</label>
+	    <input type="text" size="30" name="constrained_text" id="constrained_text">
+	    <input type="button" id="execute_constrained" value="Execute">
+    
+    </div>
+    
+    <!-- NLQ tab -->
+    <div id="tabs-2">
+    	<h1>Natural Language Interface</h1>
+	    <p class="description">User may enter query in free-form natural language expressions, 		either in a command mode as "Show all the reports..." or in a question mode such as "What are the intrusions in the past month in the area between..."</p>
+	    
+        <label for="nlq-database-list">Select Data Source:</label><br>
+	<select id="nlq-database-list" style="width:150px; height:25px;">
+	<option value="null" selected>Select...</option>
+	<option value="geoquery">geoquery</option>
+	<option value="madsat">madsat</option>
+	<option value="madsatBIG">madsatBIG</option>
+	<option value="saluteBIG">saluteBIG</option>
+	<option value="test">test</option>
+	</select>  
+	  <br><br>
+	    <label for="nlq-string">Enter query: </label><br>
+	    <input type="text" id="nlq-string" size="30"><br><br>
+	    <button id="nlq-execute" >Execute</button>
+	       
+	    <script>
+	       //post NLQ string    
+	       $(document).ready(function(){
+	       var nlqString = '';
+	       // add button id to activate code
+	       $('').click(function(){
+		nlqString = $('#nlq-database-list').val();
+		nlqString += ':' + $('#nlq-string').val();
+	       //console.log(nlqString); //for debugging
+	       $.post('plan.jsp',{q:nlqString});
+	       
+	       
+	       // begin ajax request
+	       $.ajax({
+               type:'get',
+               url:'result.xml',
+               beforeSend: function(){$('#query-results').html('<img src="images/ajax-loader.gif"><br>Loading...'); },
+               timeout: 10000,
+               error: function(xhr, status, error){
+                alert("Error: " + xhr.status + " - " + error)
+               },
+               dataType: "xml",
+               success: function(data){
+                
+               var html = '<h3>Query Results</h3>';
+               html += '<table><tbody><tr>';
+               
+               var keys = $(data).find('row:first>*').map(function(){return this.nodeName}).get();
+               console.log(keys);
+               console.log(keys.length);
+               for (i=0; i<keys.length; i++){
+               
+               html += '<th class="' + keys[i] +'">' + keys[i] + '</th>' 
+               }
+            html += '</tr>';    
+               
+                $(data).find('row').each(function(){
+                    var row = $(this);
+                    
+                    html+= '<tr>';
+                    $(data).find(row).children().each(function(){
+                    
+                    html+= '<td>' + $(this).text() + '</td>';
+                    
+                        }); //end each column
+                    
+                    html+= '</tr>'
+                    });  //end each row
+                             
+                
+               
+            
+            
+            
+        $('#query-results').html(html); // Add to DOM
+        
+                
+               }//end success
+            
+    
+            
+                              
+           });//end ajax
+	       
+	       //} //  end checkFile
+	       
+	       }); // end click
+	       
+        });   //end document ready
+	    </script> 	
+    </div>
+    
+    
+    <!-- Keyword query tab -->
+    <div id="tabs-3">
+    	<h1>Keyword interface</h1>
+    	<p class="description">User may specify a query by entering a keyword. Query results can 		be targeted by selecting from lists of relevant key words. </p>
+    </div>
+    
+    <!-- SQL query tab -->
+    <div id="tabs-4">
+    	<h1>SQL interface</h1>
+    	<p class="description">User may enter a query using ANSI SQL syntax</p>
+    	<label for="sql" style="vertical-align: top;">Enter SQL</label>
+    	<textarea id="sql" rows="5"></textarea>
+    </div>
+    
+    <!-- Library saved queries tab -->
+     <div id="tabs-5">
+    	<h1>Canned library</h1>
+    	<p class="description">Library of predefined queries. Select database and desired query by typing in 	text boxes.</p>
+	<label for="database-list">Select Domain:</label><br>
+	<select id="database-list" style="width:150px; height:25px;">
+	<option value="null" selected>Select...</option>
+	<option value="geoquery">geoquery</option>
+	<option value="madsat">madsat</option>
+	<option value="madsatBIG">madsatBIG</option>
+	<option value="saluteBIG">saluteBIG</option>
+	<option value="test">test</option>
+	</select>  
+	  <br><br>
+	<label for="query-list">Select Query:</label><br>
+	<input type="text" id="query-list" size="45"><br><br>
+	<button id="translate">Translate</button>
+	<div id="ul-container">
+            <ul id="selectable">
+                <p>Translated Queries</p>
+                
+            </ul>
+        </div>
+	
+	<button id="execute-canned">Execute</button>
+    
+    
+    
+<script>
+         $(document).ready(function(){
+            $.get('inputQueryExamples.txt',function(data){
+                var queryString = data;
+                var cleanString = "";
+                var db = '';
+                $('#database-list').change(function(){
+                   db = $('#database-list').val();
+                   
+                   // /(^DATABASE:.*\r\n)(^NL.*)/gm
+                   // http://regex101.com/r/mN4hS2
+                   //modified 2/12/14
+                   regex = new RegExp('(^DATABASE:'+ db +'\r\n)(^NL.*)' ,'gm');
+                               
+                   cleanString = queryString.match(regex);
+                    
+                   var nlString = cleanString.map(function(el) {return el.replace('DATABASE:' + db,'');});
+                   nlString = nlString.map(function(el){return el.replace('NL:',''); });
+                   
+                   $('#query-list').autocomplete({
+                    source:nlString
+                    }); 
+                    
+                    
+        
+                 }); // end change
+                                         
+                
+                
+            });//end get
+          
+	  //post selection database and query
+	  // last update 2/3/14
+	  //$(document).ready(function(){
+	       
+            var qString = '';
+            $('#translate').click(function(){
+            this.disabled = true;
+	    
+	    qString = $('#database-list').val();
+	    qString += ':' + $('#query-list').val();
+            console.log(qString); //for debugging
+            $.post('translate.jsp',{q:qString}
+            ).done(function waitForTranslation(){     
+                var timer = setInterval(function(){
+                        
+                    
+                    },3000) ;
+	    
+            //get and display translated queries
+	    var translation = '';
+            $.ajax({
+                url:'translation.xml',
+                type:'get',
+                cache: false,
+                dataType: 'xml',
+                error: function(xhr, status, error){
+                       clearInterval(timer);
+                       waitForTranslation();
+                       },
+                success: function(data){
+                    var xml = '';
+                    xml = data;
+                    $(data).find('sql').each(function(){
+                        var sql = $(this)
+                        translation += '<li class="translation">' + sql.text() + '</li>'
+                    }); //end each
+                    
+                    $('#selectable').html(translation);
+                    
+                    
+                    
+                    }// end success       
+            });// end ajax
+            
+            }); // end done post to translate.jsp
+            
+            }); //end translate click
+            
+            //get correct query translation
+	    var sqlQuery ='';
+	     
+            $('#selectable').selectable({
+                                        stop: function(){
+                                            sqlQuery = $('#database-list').val()
+					    sqlQuery += ':';
+                                            sqlQuery += $('.ui-selected').text()
+                                            console.log(sqlQuery);
+
+                                            }
+                                        });
+            
+            $('#execute-canned').click(function(){
+		var hello = 'hello';
+                this.disabled =true;    
+                $.post(
+                    'plan.jsp',
+                    {q:sqlQuery}
+                    ).done(function waitForPlan(){     
+                    var wait = setInterval(function(){
+                        
+                    
+                    },3000);
+                    
+                    $.ajax({
+                       url:'planXML.txt',
+                       cache: false,
+                       error: function(xhr, status, error){
+                        clearInterval(wait);
+                        waitForPlan();
+                       
+                       },
+                       dataType: 'xml',
+                       success: function(data, status, jqXHR){
+			clearInterval(wait);
+                        var html ='';
+                        var text = '';
+                        text = jqXHR.responseText;
+                        html = '<h3>Raw Plan XML</h3>';
+                        html += '<xmp>';
+                        html += text   
+                        html+= '</xmp>';
+                      $('#graphicsDisplay').html(html)
+            
+                       }
+                      
+                      }).done(function waitForResult(){
+                        var waitAgain = setInterval(function(){
+                        
+                    
+                        },3000);    
+                    
+                        //load results with timer
+	    
+	       $.ajax({
+               type:'get',
+               url:'result.xml',
+               beforeSend: function(){$('#query-results').html('<img src="images/ajax-loader.gif"><br>Loading...'); },
+               timeout: 10000,
+               error: function(xhr, status, error){
+                //alert("Error: " + xhr.status + " - " + error)
+                
+                clearInterval(waitAgain);
+                waitForResult();
+		
+               },
+               dataType: "xml",
+               cache:false,
+               success: function(data){
+               clearInterval(waitAgain); 
+               var html = '<h3>Query Results</h3>';
+               html += '<table><tbody><tr>';
+               
+               var keys = $(data).find('row:first>*').map(function(){return this.nodeName}).get();
+               console.log(keys);
+               console.log(keys.length);
+               for (i=0; i<keys.length; i++){
+               
+               html += '<th class="' + keys[i] +'">' + keys[i] + '</th>' 
+               }
+            html += '</tr>';    
+               
+                $(data).find('row').each(function(){
+                    var row = $(this);
+                    
+                    html+= '<tr>';
+                    $(data).find(row).children().each(function(){
+                    
+                    html+= '<td>' + $(this).text() + '</td>';
+                    
+                        }); //end each column
+                    
+                    html+= '</tr>'
+                    });  //end each row
+                             
+                
+               
+            
+            
+            
+        $('#query-results').html(html); // Add to DOM
+	  $('#execute-canned').removeAttr('disabled');
+	  $('#translate').removeAttr('disabled');
+        
+                
+               }//end success
+            
+    
+            
+                              
+           });//end ajax to show results      
+                              
+                    }); //end done, get result
+                    
+                }); //end done post
+            
+	    
+	    })   
+	    
+        }); //end ready
+	  
+	    
+         
+     </script>
+	
+    </div>
+     <!-- Analytics models -->
+    <div id="tabs-6">
+    	<h1>Analytics</h1>
+	<label for="model-database-list">Select Data Source:</label><br>
+	<select id="model-database-list" style="width:150px; height:25px;">
+	<option value="null" selected>Select...</option>
+	<option value="accumulo">accumulo</option>
+	<option value="cloudbase" >cloudbase</option>
+	<option value="geoquery">geoquery</option>
+	<option value="madsat">madsat</option>
+	<option value="madsatBIG">madsatBIG</option>
+	<option value="mysql">mysql</option>
+	<option value="saluteBIG">saluteBIG</option>
+	<option value="test">test</option>
+	</select>  
+	  <br><br>
+    	<p class="description">Select a model to evaluate</p>
+	<select id="model-list" style="width:250px; height:25px;">
+            <option value="null" selected>Select...</option>
+            <option value="Dirty Bomb Threat">Dirty Bomb Threat</option>
+            <option value="Nuclear Bomb Threat" >Nuclear Threat</option>
+	    <option value="Nuclear Proliferation Threat">Nulcear Proliferation Threat</option>
+            
+        </select>
+	<br><br>
+	<button id="bayes-load">Load</button>
+	<button id="bayes-update">Update</button>
+	<button id="bayes-reset">Reset</button>
+	
+	<script>
+	  //last update 1/22/14
+	  //ajax request for xml to load initial nodes and image file
+        $(document).ready(function(){
+	    $('#bayes-reset').click(function(){
+		$.post('deleteFiles.jsp');
+	    
+	    }); //end rest click
+	    
+	       var dataSource = '';
+	       var model = '';
+	       $('#model-database-list').change(function(){
+		    
+		  dataSource = $('#model-database-list').val();  
+	       });
+	       $('#model-list').change(function(){
+                
+                $('#query-results').html('<h1>Query Results</h1><p>Click load to display inital model.</p>');
+                model = $('#model-list').val();
+                
+                //select image
+                if (model=="Dirty Bomb Threat") {
+                    $('#graphicsDisplay').html('<h1>Model Graphic</h1><img src="images/Dirty Bomb Threat BN.jpg" width="450">');
+                    
+                    }else if (model=="Nuclear Bomb Threat") {
+                    $('#graphicsDisplay').html('<h1>Model Graphic</h1><img src="images/bayes_test3.jpg" width="450">');    
+                    }else if (model=="Nuclear Proliferation Threat") {
+		    $('#graphicsDisplay').html('<h1>Model Graphic</h1><img src="images/Nuclear Proliferation Threat BN.jpg" width="450">');
+		    } else
+		    $('#graphicsDisplay').html('<h1 align="center">No Graphic to Display</h1>');
+                    
+           
+	       }); // end select
+	       
+	    //load inital distribution and graphic
+	    // changed to ajax request 2/14/14
+                $('#bayes-load').click(function(){
+                var modelString = '';
+		modelString = dataSource + '#';    
+                modelString += model + ':Load'
+                console.log(modelString);
+                $.ajax({
+                type: 'POST',
+		url:'analytics.jsp',
+                data:{q:modelString},
+		beforeSend: function(){
+		    $('#query-results').html('<img src="images/ajax-loader.gif"><p>Retrieving Model...</p>');
+		}
+		}).done(function recursionLoad(){
+        var timerLoad = setInterval(function(){},1000)
+    
+    
+    //function waitAndSee(){
+        setTimeout(function(){
+            $.ajax({
+               type:'GET',
+               url:'modelBN.xml',
+               beforeSend: function(){$('#query-results').html('<img src="images/ajax-loader.gif"><p>Loading...</p>'); },
+               timeout: 10000,
+               error: function(xhr, status, error){
+                clearInterval(timerLoad);
+			    recursionLoad();
+		//alert("Error: " + xhr.status + " - " + error)
+               },
+               dataType: 'xml',
+               cache:false,
+               success: function(data){
+               clearInterval(timerLoad); 
+               var html = '<h3>Nodes</h3><ul class="outer">';
+               $(data).find('node').each(function() { // Each node
+               var node = $(this);
+               html += '<li>' + node.find('name').text() + '<ul class="detail">'; // Embedded list
+               node.find('state').each(function() { // Each node state
+               html += '<li>' + $(this).text()
+               
+               var prob = $(this).attr('prob');
+               html += ': ' + prob;
+               prob = parseFloat(prob);
+               html +=  '<div style="height:8px; width:40px;" data-prob="' + prob*100 + '"></div>';
+                
+               
+               
+               });
+            html += '</ul></li>'
+        });
+            html += '</ul>';
+        $('#query-results').html(html). // Add to DOM
+        on('click', '> ul > li', function() { // Toggle embedded display on click
+            $(this).find('ul').toggle();
+            $(this).toggleClass('minus');
+                
+            
+            
+    })//.find('ul ul').hide(); // Hide embedded initially
+
+        $("[data-prob]").each(function(){
+      $(this).progressbar({ value: $(this).data("prob") })
+      $(this).removeAttr("data-prob")
+        });
+            
+               
+               
+           
+                             
+                
+               
+            
+            
+            
+        //$('#query-results').html(html); // Add to DOM
+        
+                
+               }//end success
+            
+    
+            
+                              
+           });//end ajax
+		
+		},2000); //end wrapper
+                    
+
+                    
+                }); // end done
+				}); //end click
+				 
+            //update model
+            // changed to ajax request 2/14/14
+            $('#bayes-update').click(function(){
+                var modelString = '';
+	        modelString = dataSource + '#';
+                modelString += model + ':Update'
+                console.log(modelString);
+                $.ajax({
+                type: 'POST',
+		url: 'analytics.jsp',
+                data: {q:modelString},
+		beforeSend: function(){
+		    $('#query-results').html('<img src="images/ajax-loader.gif"><p>Updating Model...</p>');
+		}
+                }
+                 ).done(function recursionUpdate(){     
+                var timerUpdate = setTimeout(function(){
+                        
+                    
+                    },3000)
+		    setTimeout(function(){
+                    $.ajax({
+               type:'GET',
+               url:'modelBN.xml',
+               beforeSend: function(){$('#query-results').html('<img src="images/ajax-loader.gif"><br>Loading...'); },
+               timeout: 10000,
+               error: function(xhr, status, error){
+               //clearInterval(timerUpdate);
+	       recursionUpdate();
+	       //alert("Error: " + xhr.status + " - " + error)
+               },
+               dataType: "xml",
+               cache:false,
+               success: function(data){
+               clearInterval(timerUpdate); 
+               var html = '<h3>Nodes</h3><ul class="outer">';
+               $(data).find('node').each(function() { // Each node
+               var node = $(this);
+               html += '<li>' + node.find('name').text() + '<ul class="detail">'; // Embedded list
+               node.find('state').each(function() { // Each node state
+               html += '<li>' + $(this).text()
+               
+               var prob = $(this).attr('prob');
+               html += ': ' + prob;
+               prob = parseFloat(prob);
+               html +=  '<div style="height:8px; width:40px;" data-prob="' + prob*100 + '"></div>';
+                
+               
+               
+               });
+            html += '</ul></li>'
+        });
+            html += '</ul>';
+        $('#query-results').html(html). // Add to DOM
+        on('click', '> ul > li', function() { // Toggle embedded display on click
+            $(this).find('ul').toggle();
+            $(this).toggleClass('minus');
+                
+            
+            
+    })//.find('ul ul').hide(); // Hide embedded initially
+
+        $("[data-prob]").each(function(){
+      $(this).progressbar({ value: $(this).data("prob") })
+      $(this).removeAttr("data-prob")
+        })
+      
+            
+        //$('#query-results').html(html); // Add to DOM duplicated for some unknown reason
+        
+                
+               }//end success
+            
+    
+            
+                              
+           });//end ajax
+			},2000) // end setTimeout
+                }); //end wrapper
+                    
+                    
+                    
+                }); //end click
+	       
+        }); //end ready
+</script>
+	
+	
+    
+    </div>
+    
+    
+</div> <!-- end of tabs -->
+
+<!-- continuous real time status messaging (ouput) -->
+<section id="query-results" style="overflow:auto;">
+     
+	<h1>Query Results</h1>
+	<p>Select query from Library tab or Analytics tab to display results.</p>
+	
+	
+</section>
+
+<section id="graphicsDisplay">
+	<h1>Geospatial Area of Interest</h1>
+    <p>This panel will display, if relevant, a graphic of interest. Panel may be split into two as development progresses, a top and bottom to allow output of Bayesian Model and other relevant graphic such as an interactive map.</p>
+</section>
+
+</body>
+</html>
+

@@ -1,0 +1,99 @@
+QUERY:1
+DATABASE:geoquery
+NL:What are the capitals of the states that border the most populated states?
+SQL:something
+
+QUERY:2
+DATABASE:geoquery
+NL:What are the capitals of the states bordering New York?
+SQL:SELECT state.Capital FROM state JOIN borderinfo ON state.State_Name = borderinfo.State_Name WHERE borderinfo.Border = 'New York'
+
+QUERY:3
+DATABASE:geoquery
+NL:Show the state capitals and populations.
+SQL:SELECT state.Capital, state.Population FROM state
+
+QUERY:4
+DATABASE:geoquery
+NL:Show the capital of the state New York.
+SQL:SELECT state.Capital FROM state WHERE state.State_Name = 'New York'
+
+QUERY:5
+DATABASE:geoquery
+NL:Show the average of state populations.
+SQL:something
+
+QUERY:6
+DATABASE:madsat
+NL:Show Salute platforms from NAIs with mobility nogo.
+SQL:SELECT salute.Platform FROM salute JOIN naimobility ON salute.NAI = naimobility.NAI WHERE naimobility.Mobility = ‘No Go’
+
+QUERY:7
+DATABASE:madsat
+NL:Show Salute platforms from NAIs.
+SQL:SELECT NAI, Platform FROM salute
+
+QUERY:8
+DATABASE:datasite
+NL:Show tables and servers from sites.
+SQL:SELECT Table, Server FROM Sites
+
+QUERY:9
+DATABASE:bigdata
+NL:Show Salute platforms from NAIs with mobility nogo.
+SQL:SELECT salute.Platform FROM salute JOIN naimobility ON salute.NAI = naimobility.NAI WHERE naimobility.Mobility = 'No Go'
+
+QUERY:10
+DATABASE:weapon
+NL:List countries who have Baradero class ships.
+SQL:SELECT navyship.Country FROM navyship WHERE navyship.class = ‘Baradero’
+
+QUERY:11
+DATABASE:weapon
+NL:Show countries and lengths who have Frigate type ships.
+SQL:SELECT navyship.Country AND navyship.Length FROM navyship WHERE navyship.type = ‘Frigate’
+
+QUERY:12
+DATABASE:weapon
+NL:Show countries with ships of Frigate type and Baradero class.
+SQL:SELECT navyship.Country FROM navyship WHERE navyship.type = ‘Frigate’ AND navyship.Class = ‘Baradero’
+
+QUERY:13
+DATABASE:geoquery
+NL:What are the capitals of the states bordering Massachusetts?
+SQL:SELECT state.Capital FROM state JOIN borderinfo ON state.State_Name = borderinfo.State_Name WHERE borderinfo.Border = 'Massachusetts'
+
+QUERY:14
+DATABASE:terrorism
+NL:Show all terrorism events in the country Iran.
+SQL:?
+
+QUERY:15
+DATABASE:terrorism
+NL:Show all terrorism events occurred in the year 1999 and in the country Iraq.
+SQL:?
+
+QUERY:16
+DATABASE:terrorism
+NL:Show all IED terrorism events occurred in between the years 1999 and 2000 and in the country Iraq.
+SQL:?
+
+QUERY:17
+DATABASE:consumer
+NL:Show company with complaint against Debt collection product.
+SQL:SELECT complaints.Company FROM complaints WHERE complaints.Product = ‘Debt collection’ 
+
+QUERY:18
+DATABASE:consumer
+NL:Show issues and dates of complaints about HSBC companies.
+SQL:SELECT complaints.Issue, complaints.Date_sent FROM complaints WHERE complaints.Company = 'HSBC'
+
+QUERY:18
+DATABASE:consumer
+NL:Show companies, issues and dates with consumer concerns.
+SQL:SELECT complaints.Company, complaints.Issue, complaints.Date_sent FROM complaints
+
+QUERY:20
+DATABASE:consumer
+NL:Show issues and companies with complaints in MA state.
+SQL:SELECT complaints.Company, complaints.Issue, complaints.Date_sent FROM complaints

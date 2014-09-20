@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bn>
+    <node>
+        <name>Stability</name>
+        <state>Low
+            <state-prob>.15</state-prob>
+        </state>
+        <state>Moderate
+            <state-prob>.25</state-prob>
+        </state>
+        <state>High
+            <state-prob>.60</state-prob>
+        </state>
+    </node>
+    
+    <node>
+        <name>Free/Fair Elections</name>
+        <state>Yes
+            <state-prob>.6</state-prob>
+        </state>
+        <state>No
+            <state-prob>.4</state-prob>
+        </state>
+    </node>
+    
+    <node>
+        <name>Regulatory Compliance</name>
+        <state>Yes
+            <state-prob>.8</state-prob>
+        </state>
+        <state>No
+            <state-prob>.2</state-prob>
+        </state>
+        
+    </node>
+</bn>
+

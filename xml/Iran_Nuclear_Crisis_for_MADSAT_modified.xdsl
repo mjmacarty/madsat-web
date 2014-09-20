@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<smile version="1.0" id="Unnamed" numsamples="1000" discsamples="10000">
+	<nodes>
+		<cpt id="Proliferation_Alert_and_Nuclea">
+			<state id="Yes" />
+			<state id="No" />
+			<probabilities>0.76 0.24</probabilities>
+		</cpt>
+		<cpt id="Suspicion_of_military_nuclear_">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Proliferation_Alert_and_Nuclea</parents>
+			<probabilities>0.77 0.23 0.3 0.7</probabilities>
+		</cpt>
+		<cpt id="Development_of_long_range_prop">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Proliferation_Alert_and_Nuclea</parents>
+			<probabilities>0.6800000000000001 0.32 0.06 0.94</probabilities>
+		</cpt>
+		<cpt id="Seizure_of_critical_nuclear_ma">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Suspicion_of_military_nuclear_</parents>
+			<probabilities>0.85 0.15 0.23 0.77</probabilities>
+		</cpt>
+		<cpt id="Secret_construction_of_nuclear">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Suspicion_of_military_nuclear_</parents>
+			<probabilities>0.92 0.08 0.36 0.64</probabilities>
+		</cpt>
+		<cpt id="Development_of_nuclear_power">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Suspicion_of_military_nuclear_</parents>
+			<probabilities>0.72 0.28 0.04 0.96</probabilities>
+		</cpt>
+		<cpt id="Will_to_develop_long_range_pro">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Suspicion_of_military_nuclear_</parents>
+			<probabilities>0.57 0.43 0.25 0.75</probabilities>
+		</cpt>
+		<cpt id="Industrial_cooperation_in_nucl">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Development_of_nuclear_power</parents>
+			<probabilities>0.87 0.13 0.48 0.52</probabilities>
+		</cpt>
+		<cpt id="Will_to_develop_nuclear_power">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Development_of_nuclear_power</parents>
+			<probabilities>0.58 0.42 0.39 0.61</probabilities>
+		</cpt>
+		<cpt id="Budget_allocation_to_nuclear_R">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Development_of_nuclear_power</parents>
+			<probabilities>0.9 0.1 0.14 0.86</probabilities>
+		</cpt>
+		<cpt id="High_Tech_R_and_D">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Development_of_nuclear_power</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Purchase_of_enriched_materials">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Development_of_nuclear_power</parents>
+			<probabilities>0.65 0.35 0.17 0.83</probabilities>
+		</cpt>
+		<cpt id="Infrastructure_building_requir">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Will_to_develop_nuclear_power</parents>
+			<probabilities>0.89 0.11 0.03 0.97</probabilities>
+		</cpt>
+		<cpt id="Indust_cooperation_in_presumed">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Will_to_develop_nuclear_power</parents>
+			<probabilities>0.59 0.41 0.49 0.51</probabilities>
+		</cpt>
+		<cpt id="Will_to_cooperate_in_nuclear_a">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Will_to_develop_nuclear_power</parents>
+			<probabilities>0.8 0.2 0.46 0.54</probabilities>
+		</cpt>
+		<cpt id="Development_in_civilian_nuclea">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Will_to_develop_nuclear_power</parents>
+			<probabilities>0.64 0.36 0.28 0.72</probabilities>
+		</cpt>
+		<cpt id="Equipment_purchase_required_by">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Will_to_develop_nuclear_power</parents>
+			<probabilities>0.89 0.11 0.33 0.67</probabilities>
+		</cpt>
+		<cpt id="Scientific_cooperation">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>High_Tech_R_and_D</parents>
+			<probabilities>0.59 0.41 0.5 0.5</probabilities>
+		</cpt>
+		<cpt id="Recruitment_of_nuclear_special">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>High_Tech_R_and_D</parents>
+			<probabilities>0.91 0.09 0.25 0.75</probabilities>
+		</cpt>
+		<cpt id="Iran_has_enough_uranium_on_hand">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Suspicion_of_military_nuclear_</parents>
+			<probabilities>0.8 0.2 0.2 0.8</probabilities>
+		</cpt>
+	</nodes>
+	<extensions>
+		<genie version="1.0" app="GeNIe 2.0.3887.0" name="Unnamed" faultnameformat="nodestate">
+			<node id="Proliferation_Alert_and_Nuclea">
+				<name>Proliferation_Alert_and_Nuclea</name>
+				<interior color="ff0000" />
+				<outline color="000000" width="2" />
+				<font color="ffffff" name="Arial" size="8" />
+				<position>600 20 800 70</position>
+			</node>
+			<node id="Suspicion_of_military_nuclear_">
+				<name>Suspicion_of_military_nuclear_</name>
+				<interior color="e5f6f7" />
+				<outline color="0000bb" />
+				<font color="000000" name="Arial" size="8" />
+				<position>400 100 590 150</position>
+			</node>
+			<node id="Development_of_long_range_prop">
+				<name>Development_of_long_range_prop</name>
+				<interior color="e5f6f7" />
+				<outline color="0000bb" />
+				<font color="000000" name="Arial" size="8" />
+				<position>800 100 990 150</position>
+			</node>
+			<node id="Seizure_of_critical_nuclear_ma">
+				<name>Seizure_of_critical_nuclear_ma</name>
+				<interior color="e5f6f7" />
+				<outline color="0000bb" />
+				<font color="000000" name="Arial" size="8" />
+				<position>100 200 290 250</position>
+			</node>
+			<node id="Secret_construction_of_nuclear">
+				<name>Secret_construction_of_nuclear</name>
+				<interior color="e5f6f7" />
+				<outline color="0000bb" />
+				<font color="000000" name="Arial" size="8" />
+				<position>300 200 490 250</position>
+			</node>
+			<node id="Development_of_nuclear_power">
+				<name>Development_of_nuclear_power</name>
+				<interior color="e5f6f7" />
+				<outline color="0000bb" />
+				<font color="000000" name="Arial" size="8" />
+				<position>500 200 690 250</position>
+			</node>
+			<node id="Will_to_develop_long_range_pro">
+				<name>Will_to_develop_long_range_pro</name>
+				<interior color="e5f6f7" />
+				<outline color="0000bb" />
+				<font color="000000" name="Arial" size="8" />
+				<position>700 200 890 250</position>
+			</node>
+			<node id="Industrial_cooperation_in_nucl">
+				<name>Industrial_cooperation_in_nucl</name>
+				<interior color="e5f6f7" />
+				<outline color="0000bb" />
+				<font color="000000" name="Arial" size="8" />
+				<position>200 300 390 350</position>
+			</node>
+			<node id="Will_to_develop_nuclear_power">
+				<name>Will_to_develop_nuclear_power</name>
+				<interior color="e5f6f7" />
+				<outline color="0000bb" />
+				<font color="000000" name="Arial" size="8" />
+				<position>400 300 590 350</position>
+			</node>
+			<node id="Budget_allocation_to_nuclear_R">
+				<name>Budget_allocation_to_nuclear_R</name>
+				<interior color="e5f6f7" />
+				<outline color="0000bb" />
+				<font color="000000" name="Arial" size="8" />
+				<position>600 300 790 350</position>
+			</node>
+			<node id="High_Tech_R_and_D">
+				<name>High_Tech_R_and_D</name>
+				<interior color="e5f6f7" />
+				<outline color="0000bb" />
+				<font color="000000" name="Arial" size="8" />
+				<position>800 300 990 350</position>
+			</node>
+			<node id="Purchase_of_enriched_materials">
+				<name>Purchase_of_enriched_materials</name>
+				<interior color="e5f6f7" />
+				<outline color="0000bb" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1000 300 1190 350</position>
+			</node>
+			<node id="Infrastructure_building_requir">
+				<name>Infrastructure_building_requir</name>
+				<interior color="e5f6f7" />
+				<outline color="0000bb" />
+				<font color="000000" name="Arial" size="8" />
+				<position>10 400 200 450</position>
+			</node>
+			<node id="Indust_cooperation_in_presumed">
+				<name>Indust_cooperation_in_presumed</name>
+				<interior color="e5f6f7" />
+				<outline color="0000bb" />
+				<font color="000000" name="Arial" size="8" />
+				<position>210 400 400 450</position>
+			</node>
+			<node id="Will_to_cooperate_in_nuclear_a">
+				<name>Will_to_cooperate_in_nuclear_a</name>
+				<interior color="e5f6f7" />
+				<outline color="0000bb" />
+				<font color="000000" name="Arial" size="8" />
+				<position>410 400 600 450</position>
+			</node>
+			<node id="Development_in_civilian_nuclea">
+				<name>Development_in_civilian_nuclea</name>
+				<interior color="e5f6f7" />
+				<outline color="0000bb" />
+				<font color="000000" name="Arial" size="8" />
+				<position>610 400 800 450</position>
+			</node>
+			<node id="Equipment_purchase_required_by">
+				<name>Equipment_purchase_required_by</name>
+				<interior color="e5f6f7" />
+				<outline color="0000bb" />
+				<font color="000000" name="Arial" size="8" />
+				<position>810 400 1000 450</position>
+			</node>
+			<node id="Scientific_cooperation">
+				<name>Scientific_cooperation</name>
+				<interior color="e5f6f7" />
+				<outline color="0000bb" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1025 400 1215 450</position>
+			</node>
+			<node id="Recruitment_of_nuclear_special">
+				<name>Recruitment_of_nuclear_special</name>
+				<interior color="e5f6f7" />
+				<outline color="0000bb" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1225 400 1415 450</position>
+			</node>
+			<node id="Iran_has_enough_uranium_on_hand">
+				<name>Iran_has_enough_uranium_on_hand</name>
+				<interior color="ffff00" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>913 192 1149 239</position>
+			</node>
+		</genie>
+	</extensions>
+</smile>

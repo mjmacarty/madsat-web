@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<title>MADSAT User Interface</title>
+
+<link rel="stylesheet" type="text/css"
+	href="styles/jquery-ui-1.10.3.custom.css" />
+<link rel="stylesheet" type="text/css" href="styles/madsat.css" />
+<script type="text/javascript" src="books/javascript/jquery-1.10.2.js"></script>
+<script type="text/javascript"
+	src="books/javascript/jquery-ui-1.10.3/js/jquery-ui-1.10.3.custom.js"></script>
+<script type="text/javascript" src="b.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#tabs").tabs();
+	});
+
+	$(document).ready(function() {
+		$('#translate').click(function() {
+			this.disabled = true;
+			transFunction();
+			$('#execute-canned').removeAttr('disabled');
+		});
+	});
+
+	$(document).ready(function() {
+		$('#a-string').click(function() {
+			auto_Function();
+		});
+	});
+
+	$(document).ready(function() {
+		$('#selectable').selectable(function() {
+		});
+	});
+
+	$(document).ready(function() {
+		$('#execute-canned').click(function() {
+			var cao = new Date();
+			$('#cao').html(cao);
+			this.disabled = true;
+			execFunction();
+
+		});
+	});
+	$(document).ready(function() {
+		$('#next').click(function() {
+			nextResult();
+			fetch();
+		});
+	});
+	$(document).ready(function() {
+		$('#prev').click(function() {
+			prevResult();
+			fetch();
+		});
+	});
+</script>
+
+<script type="text/javascript">
+	// jquery-ui places tabs on page
+	$(document)
+			.ready(
+					function() {
+						$("#tabs").tabs();
+
+						//get available datasources
+						getDb('#nlq-database-list');
+						getDb('#database-list');
+						auto_Function();
+						$('#execute-canned').removeAttr('disabled');
+						$('#tabs li a')
+								.click(
+										function() {
+
+											$.post('deleteFiles.jsp');
+											$('#query-results')
+													.html(
+															'<h1>Query Results</h1>'
+																	+ '<p>Select query from Library tab or Analytics tab to display results.</p>');
+
+											$('#graphicsDisplay')
+													.html(
+															'<h1>Geospatial Area of Interest</h1>'
+																	+ '<p>This panel will display, if relevant, a graphic of interest.')
+
+										}); //end click for clearing panels	
+						$('#execute-canned').removeAttr('disabled');
+						$('#translate').removeAttr('disabled');
+					}); //end tab
+
+	//jquery-ui for autocomplete field in constrained
+	$(document).ready(
+			function() {
+				var list = [ "Work in progress",
+						"Values will be popluated intelligently",
+						"Based on user input",
+						"Functionality to be demonstrated at one year demo" ];
+				$("#constrained_text").autocomplete({
+					source : list
+				});
+			});
+</script>
+
+</head>
+
+<body>
+	<!-- tabbed UI component allows user to select all preferences before execution -->
+	<div class="wrapper">
+		<div class="main">
+
+			<div id="tabs" class="tabs-css">
+				<ul>
+					<li><a href="#tabs-5">Library</a></li>
+				</ul>
+
+
+
+				<div id="tabs-5">
+					<h1>Canned library</h1>
+					<p class="description">Library of predefined queries. Select
+						database and desired query by typing in text boxes.</p>
+					<label for="database-list">Select Domain:</label><br> <select
+						id="database-list" style="width: 150px; height: 25px;">
+						<option value="null">Select...</option>
+					</select> <br> <br> <label for="query-list">Select Query:</label><br>
+					<input type="text" id="query-list" size="38"><br> <br>
+					<button id="translate">Translate</button>
+					<div id="ul-container">
+						<ul id="selectable">
+						</ul>
+					</div>
+
+					<button id="execute-canned">Execute</button>
+
+
+
+					<script>
+						$(document)
+								.ready(
+										function() {
+											$
+													.get(
+															'inputQueryExamples.txt',
+															function(data) {
+																var queryString = data;
+																var cleanString = "";
+																var db = '';
+																$(
+																		'#database-list')
+																		.change(
+																				function() {
+																					db = $(
+																							'#database-list')
+																							.val();
+																					regex = new RegExp(
+																							'(^DATABASE:'
+																									+ db
+																									+ '\r\n)(^NL.*)',
+																							'gm');
+																					cleanString = queryString
+																							.match(regex);
+
+																					var nlString = cleanString
+																							.map(function(
+																									el) {
+																								return el
+																										.replace(
+																												'DATABASE:'
+																														+ db,
+																												'');
+																							});
+																					nlString = nlString
+																							.map(function(
+																									el) {
+																								return el
+																										.replace(
+																												'NL:',
+																												'');
+																							});
+
+																					$(
+																							'#query-list')
+																							.autocomplete(
+																									{
+																										source : nlString
+																									});
+
+																				}); // end change
+
+															});//end get
+
+										}); //end ready
+					</script>
+
+				</div>
+
+
+
+			</div>
+			<!-- end of tabs -->
+
+			<!-- continuous real time status messaging (output) -->
+
+			<section id="query-results-container">
+
+				<div style="margin-bottom: 0px;">
+					<h1 style="width: 50%; display: inline;">Query Results</h1>
+					<div id="np-results">
+
+
+						<button id="prev" value="-100">Prev</button>
+						<button id="next" value="100">Next</button>
+					</div>
+
+					<p id="fetch" style="color: #4297d7;"></p>
+				</div>
+				<div id="query-results" style="overflow: auto">
+					<p>Select query from Library tab or Analytics tab to display
+						results.</p>
+				</div>
+
+
+			</section>
+
+
+
+
+			<div id="status">
+				<h1>Status</h1>
+				<br>
+				<p class="status" style="font-size: 11px">
+					Current as of: <span id="cao" style="font-size: 10px"></span>
+				</p>
+				<br>
+				<p class="status">Total Queries Planned: &lt;&lt;xx&gt;&gt;</p>
+				<br>
+				<p class="status">Queries Completed: &lt;&lt;yy&gt;&gt;</p>
+				<br>
+				<p class="status">Percent Complete: &lt;&lt;xx%&gt;&gt;</p>
+				<br>
+				<p class="status">Estimated Time to Completion:
+					&lt;&lt;time&gt;&gt;</p>
+
+			</div>
+
+			<div id="graphicsDisplay">
+				<h1>Geospatial Area of Interest</h1>
+				<p>This panel will display, if relevant, a graphic of interest.
+					Panel may be split into two as development progresses, a top and
+					bottom to allow output of Bayesian Model and other relevant graphic
+					such as an interactive map.</p>
+			</div>
+
+		</div>
+		<!--end of main-->
+	</div>
+	<!--end of wrapper-->
+</body>
+</html>
+

@@ -1,0 +1,55 @@
+/* madsat ui css 2013-10-13
+ * background color #5c9ccc
+ * icon color #d8e7f3
+ * border color #4297d7
+ */
+
+html{
+	height:100%;
+}
+
+
+#tabs{
+	float:left;
+	width: 33%;
+	height: 100%; 
+}
+
+#query-results{
+	float:left;
+	width:33%;
+	border-radius: 4px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #4297d7;
+	margin-top:0px;
+	margin-left:2px;
+	background-color: #fcfdfd;
+}
+
+#graphicsDisplay{
+	float:right;
+	width:32.5%;
+	border-radius: 4px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #4297d7;
+	margin-top:0px;
+	margin-right: 3px;
+	margin-left: -1px;
+	background-color: #fcfdfd;
+}
+
+
+li {
+	font-size: 12px;
+	list-style-type : none;
+}
+
+h1{
+	font-size: 16pt;
+	}
+
+.description{
+	font-size:10pt;
+}

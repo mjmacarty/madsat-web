@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bn>
+    <node>
+        <name></name>
+        <state>
+            <state-prob></state-prob>
+        </state>
+        <state>
+            <state-prob></state-prob>
+        </state>
+        <state>
+            <state-prob></state-prob>
+        </state>
+    </node>
+    
+    <node>
+        <name></name>
+        <state>
+            <state-prob></state-prob>
+        </state>
+    </node>
+</bn>
+

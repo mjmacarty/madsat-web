@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    
+    <style>
+        #button{
+            float: left;
+            width:50%;
+        }
+        #team{
+            float: right;
+            width:50%;
+            vertical-align: top;
+        }
+        
+    </style>
+    <title>XMLHTTPRequest</title>
+    
+    <script src="jquery-1.10.2.js"></script>
+        
+    <script>
+        $(document).ready(function(){
+            xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function(){
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    xmlDoc = xhr.responseXML;
+                    var team = xmlDoc.getElementsByTagName("teammember");
+                    var html = "";
+                    for (i = 0; i < team.length; i++){
+                        html +=
+                        "<li>" + xmlDoc.getElementsByTagName("name")[i].childNodes[0].nodeValue + " " +
+                        xmlDoc.getElementsByTagName("title")[i].childNodes[0].nodeValue + " " +
+                        xmlDoc.getElementsByTagName("bio")[i].childNodes[0].nodeValue + "</li>";
+                        
+                    }
+                    document.getElementById("team").innerHTML = html
+                }
+            }
+            xhr.open("GET", "team.xml", true);
+            
+        });
+    </script>
+</head>
+
+<body>
+    <section id="left">
+        <h1>Hi Ria</h1>
+        <p>How are you today?</p>
+    <div id="button">
+        
+       <button onclick="xhr.send()">Ria Click Me!</button>
+    </div>   
+    </section>
+    
+    <section id="right">
+    <div id="team">
+    
+  
+        
+    </div>
+    </section>
+
+</body>
+</html>

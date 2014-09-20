@@ -1,0 +1,22 @@
+QUERY:5
+DATABASE:madsat
+NL:Show Salute platforms from NAIs with mobility nogo.
+SQL:SELECT NAI, Platform FROM salute JOIN naimobility ON salute.NAI = naimobility.NAI WHERE naimobility.Mobility = ‘No Go’
+DR:
+nn(Salute-2, Show-1)
+nsubj(platforms-3, Salute-2)
+root(ROOT-0, platforms-3)
+prep_from(platforms-3, NAIs-5)
+prep_with(platforms-3, mobility-7)
+prep_as(platforms-3, nogo-9)
+
+QUERY:6
+DATABASE:madsat
+NL:Show Salute platforms from NAIs.
+SQL:SELECT NAI, Platform FROM salute
+DR:
+nn(Salute-2, Show-1)
+nsubj(platforms-3, Salute-2)
+root(ROOT-0, platforms-3)
+prep_from(platforms-3, NAIs-5)
+

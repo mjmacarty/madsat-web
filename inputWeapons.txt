@@ -1,0 +1,20 @@
+QUERY:10
+DATABASE:weapon
+NL:List countries who have Baradero class ships.
+SQL:SELECT navyship.Country FROM navyship WHERE navyship.class = ‘Baradero’
+DR:
+nn(Weapon-2, List-1)
+
+QUERY:11
+DATABASE:weapon
+NL:Show countries and weights who have Frigate type ships.
+SQL:SELECT navyship.Country AND navyship.Length FROM navyship WHERE navyship.type = ‘Frigate’
+DR:
+nn(Weapon-2, Show-1)
+
+QUERY:12
+DATABASE:weapon
+NL:Show countries with ships of Frigate type and Baradero class.
+SQL:SELECT navyship.Country FROM navyship WHERE navyship.type = ‘Frigate’ AND navyship.Class = ‘Baradero’
+DR:
+nn(Weapon-2, Show-1)

@@ -1,0 +1,56 @@
+QUERY:1
+DATABASE:geoquery
+NL:What are the capitals of the states that border the most populated states?
+SQL:something
+DR:
+root(ROOT-0, What-1)
+cop(What-1, are-2)
+det(capitals-4, the-3)
+nsubj(What-1, capitals-4)
+det(states-7, the-6)
+prep_of(capitals-4, states-7)
+nsubj(border-9, states-7)
+rcmod(states-7, border-9)
+det(states-13, the-10)
+advmod(populated-12, most-11)
+amod(states-13, populated-12)
+dobj(border-9, states-13)
+
+QUERY:2
+DATABASE:geoquery
+NL:What are the capitals of the states bordering New York?
+SQL:SELECT state.Capital FROM state JOIN border_info ON state.State_Name = border_info.State_Name WHERE border_info.Border = 'New York'
+DR:
+root(ROOT-0, What-1)
+cop(What-1, are-2)
+det(capitals-4, the-3)
+nsubj(What-1, capitals-4)
+det(states-7, the-6)
+prep_of(capitals-4, states-7)
+partmod(states-7, bordering-8)
+nn(York-10, New-9)
+dobj(bordering-8, York-10)
+
+QUERY:3
+DATABASE:geoquery
+NL:Show the state capitals and populations.
+SQL:something
+DR:
+root(ROOT-0, Show-1)
+det(capitals-4, the-2)
+nn(capitals-4, state-3)
+dobj(Show-1, capitals-4)
+dobj(Show-1, populations-6)
+conj_and(capitals-4, populations-6)
+
+QUERY:4
+DATABASE:geoquery
+NL:Show the average of state populations.
+SQL:something
+DR:
+root(ROOT-0, Show-1)
+det(average-3, the-2)
+dobj(Show-1, average-3)
+nn(populations-6, state-5)
+prep_of(average-3, populations-6)
+

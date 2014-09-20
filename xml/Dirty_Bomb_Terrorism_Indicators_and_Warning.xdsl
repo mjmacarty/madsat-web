@@ -1,0 +1,789 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<smile version="1.0" id="Network1" numsamples="1000" discsamples="10000">
+	<nodes>
+		<cpt id="Dirty_Bomb_Threat">
+			<state id="Yes" />
+			<state id="No" />
+			<probabilities>0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Terrorism_Indicators_and_Warning">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Dirty_Bomb_Threat</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Planning_I_and_W">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Terrorism_Indicators_and_Warning</parents>
+			<probabilities>0.6 0.4 0.4 0.6</probabilities>
+		</cpt>
+		<cpt id="Acquisition_I_and_W">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Terrorism_Indicators_and_Warning Planning_I_and_W</parents>
+			<probabilities>0.7 0.3 0.3 0.7 0.1 0.9 0.01 0.99</probabilities>
+		</cpt>
+		<cpt id="Making_I_and_W">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Terrorism_Indicators_and_Warning Acquisition_I_and_W</parents>
+			<probabilities>0.9 0.1 0.1 0.9 0.1 0.9 0.01 0.99</probabilities>
+		</cpt>
+		<cpt id="Deployment_I_and_W">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Terrorism_Indicators_and_Warning Making_I_and_W</parents>
+			<probabilities>0.99 0.01 0.01 0.99 0.1 0.9 0.01 0.99</probabilities>
+		</cpt>
+		<cpt id="Surveillance">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Planning_I_and_W</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Elicitation">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Planning_I_and_W</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Test_of_Security">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Planning_I_and_W</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Fundraising">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Planning_I_and_W</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Acquiring_Supplies">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Acquisition_I_and_W</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Assemblage_of_Devices">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Making_I_and_W</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Dry_Runs">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Deployment_I_and_W</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Truck_Bomb_Indicators">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Deployment_I_and_W</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Recruitment_and_Coconspirators">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Deployment_I_and_W</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Suspicious_monitoring_activities_of_a_target__fixed_or_mobile_">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Surveillance</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Unusual_photography_of_targets__creation_of_maps">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Surveillance</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Attempts_to_gain_restricted_information_about_a_place__person_or_operation">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Elicitation</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Attempts_to_place__key__people_in_sensitive_work_areas">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Elicitation</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Effort_to_find_out_strengths_and_weaknesses">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Elicitation</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Conducted_by_driving_by_the_target__attempting_to_breach_security_to_discover_response_times">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Test_of_Security</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Efforts_to_gain_legitimate_employment_to_observe_goings_on_at_a_target">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Test_of_Security</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Unexplained_break_ins_and_tampering_of_security_systems">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Test_of_Security</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Financial_resources_sought_out_made_available">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Fundraising</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Suspicious_transactions_involving_large_cash_payments__deposits_or_withdrawals">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Fundraising</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Collections_for_donations__solicitation_for_money">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Fundraising</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Purchasing_or_stealing">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Acquiring_Supplies</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Unlawful_storage_of_large_quantities_of_chemicals_such_as_nitrate_fertilizers">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Acquiring_Supplies</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Unusual_theft_of_law_enforcement__military_and_aviation_uniforms_and_ID_badges">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Acquiring_Supplies</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Unusual_purchases_of_fuel_oil">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Acquiring_Supplies</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Acquisitions_of_manuals_on_explosives">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Acquiring_Supplies</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Acquisitions_of_igniter">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Acquiring_Supplies</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Clandestine_Meetings">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Assemblage_of_Devices</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Purchase_of_protective_clothin">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Assemblage_of_Devices</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Chemical_stains_on_hands_clothes">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Assemblage_of_Devices</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Practice_sessions_at_or_near_target_area_to_work_out_bugs_and_unanticipated_problems">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Dry_Runs</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="May_include_mapping_out_routes__monitoring_of_police_frequencies__and_determining_timing_of_traffic_lights">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Dry_Runs</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Purchase_or_theft_of_sizeable_amount_">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Truck_Bomb_Indicators</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="explosives">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Purchase_or_theft_of_sizeable_amount_</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="fuses">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Purchase_or_theft_of_sizeable_amount_</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="blasting_caps">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Purchase_or_theft_of_sizeable_amount_</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="chemicals">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Purchase_or_theft_of_sizeable_amount_</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="nitric_acid">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>chemicals</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="sulphuric_acid">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>chemicals</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="urea_crystals">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>chemicals</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="liquid_nitromethane">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>chemicals</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="ammonium_nitrate">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>chemicals</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Rental_of_self_storage_space_to_store_the_chemicals">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Truck_Bomb_Indicators</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Unusual_delivery_of_chemicals_to_residential_or_self_storage_facilities">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Truck_Bomb_Indicators</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Unusual_toxic_odors__rusted_metal__or_bright_stains_in_apartments__motels_or_self_storage_units">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Truck_Bomb_Indicators</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Rental__theft__or_purchase_of_a_truck_or_van_with_a_minimum_of_1_ton_carrying_capacity">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Truck_Bomb_Indicators</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Test_explosions_in_remote__rural_areas">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Truck_Bomb_Indicators</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Chemical_burns_and_missing_fingers_on_hands">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Truck_Bomb_Indicators</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Secret_communications_with_individuals">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Recruitment_and_Coconspirators</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Association_with_known_terrorists_or_their_supporters">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Recruitment_and_Coconspirators</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Clandestine_meetings_with_persons">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Recruitment_and_Coconspirators</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Application_of_operational_security_to_a_meeting">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Recruitment_and_Coconspirators</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="explosives_2">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Purchasing_or_stealing</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="amunition">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Purchasing_or_stealing</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="weapon">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Purchasing_or_stealing</parents>
+			<probabilities>0.9 0.1 0.1 0.9</probabilities>
+		</cpt>
+	</nodes>
+	<extensions>
+		<genie version="1.0" app="GeNIe 2.0.3887.0" name="Network1" faultnameformat="nodestate">
+			<node id="Terrorism_Indicators_and_Warning">
+				<name>Terrorism Indicators and Warning</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>844 12 950 78</position>
+			</node>
+			<node id="Planning_I_and_W">
+				<name>Planning I&amp;W</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>378 169 478 204</position>
+			</node>
+			<node id="Acquisition_I_and_W">
+				<name>Acquisition I&amp;W</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>841 132 944 171</position>
+			</node>
+			<node id="Making_I_and_W">
+				<name>Making I&amp;W</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>1127 137 1217 171</position>
+			</node>
+			<node id="Deployment_I_and_W">
+				<name>Deployment I&amp;W</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>1509 190 1616 233</position>
+			</node>
+			<node id="Surveillance">
+				<name>Surveillance</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>98 295 180 339</position>
+			</node>
+			<node id="Elicitation">
+				<name>Elicitation</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>220 302 290 338</position>
+			</node>
+			<node id="Test_of_Security">
+				<name>Test of Security</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>380 302 453 349</position>
+			</node>
+			<node id="Fundraising">
+				<name>Fundraising</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>576 319 660 362</position>
+			</node>
+			<node id="Acquiring_Supplies">
+				<name>Acquiring Supplies</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>868 209 944 259</position>
+			</node>
+			<node id="Assemblage_of_Devices">
+				<name>Assemblage of Devices</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>1217 206 1302 259</position>
+			</node>
+			<node id="Dry_Runs">
+				<name>Dry Runs</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>965 640 1041 676</position>
+			</node>
+			<node id="Truck_Bomb_Indicators">
+				<name>Truck Bomb Indicators</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>1208 531 1290 582</position>
+			</node>
+			<node id="Recruitment_and_Coconspirators">
+				<name>Recruitment and Coconspirators</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>1547 347 1662 415</position>
+			</node>
+			<node id="Suspicious_monitoring_activities_of_a_target__fixed_or_mobile_">
+				<name>Suspicious monitoring activities of a target (fixed or mobile)</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>18 385 158 472</position>
+			</node>
+			<node id="Unusual_photography_of_targets__creation_of_maps">
+				<name>Unusual photography of targets, creation of maps</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>131 385 270 471</position>
+			</node>
+			<node id="Attempts_to_gain_restricted_information_about_a_place__person_or_operation">
+				<name>Attempts to gain restricted information about a place, person or operation</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>137 505 312 596</position>
+			</node>
+			<node id="Attempts_to_place__key__people_in_sensitive_work_areas">
+				<name>Attempts to place &quot;key&quot; people in sensitive work areas</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>272 556 430 641</position>
+			</node>
+			<node id="Effort_to_find_out_strengths_and_weaknesses">
+				<name>Effort to find out strengths and weaknesses</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>405 578 521 650</position>
+				<barchart width="128" height="64" />
+			</node>
+			<node id="Conducted_by_driving_by_the_target__attempting_to_breach_security_to_discover_response_times">
+				<name>Conducted by driving by the target, attempting to breach security to discover response times</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>363 402 535 509</position>
+			</node>
+			<node id="Efforts_to_gain_legitimate_employment_to_observe_goings_on_at_a_target">
+				<name>Efforts to gain legitimate employment to observe goings on at a target</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>506 407 668 502</position>
+			</node>
+			<node id="Unexplained_break_ins_and_tampering_of_security_systems">
+				<name>Unexplained break-ins and tampering of security systems</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>662 418 821 500</position>
+			</node>
+			<node id="Financial_resources_sought_out_made_available">
+				<name>Financial resources sought out/made available</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>536 527 680 608</position>
+			</node>
+			<node id="Suspicious_transactions_involving_large_cash_payments__deposits_or_withdrawals">
+				<name>Suspicious transactions involving large cash payments, deposits or withdrawals</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>640 561 806 655</position>
+			</node>
+			<node id="Collections_for_donations__solicitation_for_money">
+				<name>Collections for donations, solicitation for money</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>785 600 930 671</position>
+			</node>
+			<node id="Purchasing_or_stealing">
+				<name>Purchasing or stealing</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>764 268 851 333</position>
+			</node>
+			<node id="Unlawful_storage_of_large_quantities_of_chemicals_such_as_nitrate_fertilizers">
+				<name>Unlawful storage of large quantities of chemicals such as nitrate fertilizers</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>875 343 1014 429</position>
+			</node>
+			<node id="Unusual_theft_of_law_enforcement__military_and_aviation_uniforms_and_ID_badges">
+				<name>Unusual theft of law enforcement, military and aviation uniforms and ID badges</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>1028 339 1174 430</position>
+			</node>
+			<node id="Unusual_purchases_of_fuel_oil">
+				<name>Unusual purchases of fuel oil</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>877 476 980 540</position>
+			</node>
+			<node id="Acquisitions_of_manuals_on_explosives">
+				<name>Acquisitions of manuals on explosives</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>983 465 1099 531</position>
+			</node>
+			<node id="Acquisitions_of_igniter">
+				<name>Acquisitions of igniter</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>1102 459 1200 510</position>
+			</node>
+			<node id="Clandestine_Meetings">
+				<name>Clandestine Meetings</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>1141 269 1235 319</position>
+			</node>
+			<node id="Purchase_of_protective_clothin">
+				<name>Purchase of protective clothin</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>1206 308 1334 371</position>
+			</node>
+			<node id="Chemical_stains_on_hands_clothes">
+				<name>Chemical stains on hands/clothes</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>1332 255 1438 321</position>
+			</node>
+			<node id="Practice_sessions_at_or_near_target_area_to_work_out_bugs_and_unanticipated_problems">
+				<name>Practice sessions at or near target area to work out bugs and unanticipated problems</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>542 791 720 865</position>
+			</node>
+			<node id="May_include_mapping_out_routes__monitoring_of_police_frequencies__and_determining_timing_of_traffic_lights">
+				<name>May include mapping out routes, monitoring of police frequencies, and determining timing of traffic lights</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>744 761 928 868</position>
+			</node>
+			<node id="Purchase_or_theft_of_sizeable_amount_">
+				<name>Purchase or theft of sizeable amount </name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>1060 648 1173 718</position>
+			</node>
+			<node id="explosives">
+				<name>explosives</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>959 761 1046 808</position>
+			</node>
+			<node id="fuses">
+				<name>fuses</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>1068 767 1114 795</position>
+			</node>
+			<node id="blasting_caps">
+				<name>blasting caps</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>1124 756 1186 807</position>
+			</node>
+			<node id="chemicals">
+				<name>chemicals</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>1207 759 1293 797</position>
+			</node>
+			<node id="nitric_acid">
+				<name>nitric acid</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>1005 869 1066 907</position>
+			</node>
+			<node id="sulphuric_acid">
+				<name>sulphuric acid</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>1102 857 1180 905</position>
+			</node>
+			<node id="urea_crystals">
+				<name>urea crystals</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>1189 853 1265 900</position>
+			</node>
+			<node id="liquid_nitromethane">
+				<name>liquid nitromethane</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>1274 841 1373 902</position>
+			</node>
+			<node id="ammonium_nitrate">
+				<name>ammonium nitrate</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>1381 842 1474 900</position>
+			</node>
+			<node id="Rental_of_self_storage_space_to_store_the_chemicals">
+				<name>Rental of self-storage space to store the chemicals</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>1184 650 1333 733</position>
+			</node>
+			<node id="Unusual_delivery_of_chemicals_to_residential_or_self_storage_facilities">
+				<name>Unusual delivery of chemicals to residential or self-storage facilities</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>1311 644 1466 734</position>
+			</node>
+			<node id="Unusual_toxic_odors__rusted_metal__or_bright_stains_in_apartments__motels_or_self_storage_units">
+				<name>Unusual toxic odors, rusted metal, or bright stains in apartments, motels or self-storage units</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>1469 632 1648 735</position>
+			</node>
+			<node id="Rental__theft__or_purchase_of_a_truck_or_van_with_a_minimum_of_1_ton_carrying_capacity">
+				<name>Rental, theft, or purchase of a truck or van with a minimum of 1 ton carrying capacity</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>1334 754 1492 832</position>
+			</node>
+			<node id="Test_explosions_in_remote__rural_areas">
+				<name>Test explosions in remote, rural areas</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>1482 747 1595 817</position>
+			</node>
+			<node id="Chemical_burns_and_missing_fingers_on_hands">
+				<name>Chemical burns and missing fingers on hands</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>1590 744 1719 824</position>
+			</node>
+			<node id="Secret_communications_with_individuals">
+				<name>Secret communications with individuals</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>1356 452 1486 522</position>
+			</node>
+			<node id="Association_with_known_terrorists_or_their_supporters">
+				<name>Association with known terrorists or their supporters</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>1471 492 1604 575</position>
+			</node>
+			<node id="Clandestine_meetings_with_persons">
+				<name>Clandestine meetings with persons</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>1585 557 1690 622</position>
+			</node>
+			<node id="Application_of_operational_security_to_a_meeting">
+				<name>Application of operational security to a meeting</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>1674 598 1798 675</position>
+			</node>
+			<node id="explosives_2">
+				<name>explosives</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>677 327 755 368</position>
+			</node>
+			<node id="amunition">
+				<name>amunition</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>738 361 809 397</position>
+			</node>
+			<node id="weapon">
+				<name>weapon</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>812 386 868 421</position>
+			</node>
+			<node id="Dirty_Bomb_Threat">
+				<name>Dirty Bomb Threat</name>
+				<interior color="ffff99" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="7" />
+				<position>571 20 673 70</position>
+			</node>
+		</genie>
+	</extensions>
+</smile>
