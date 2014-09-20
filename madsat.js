@@ -314,7 +314,7 @@ var addSite = function(){
 	'<input id="site-Server" class="manage-sites" type="text" placeholder="Server" onfocus="this.placeholder=\'\'" onblur="this.placeholder = \'Server\'"><br>' +
 	'<input id="site-password" class="manage-sites" type="text" placeholder="Password" onfocus="this.placeholder=\'\'" onblur="this.placeholder = \'Password\'"><br>' +
 	'<button class="ui-button">Add to Datasites</button>';
-	$('#manage-sites').html(addForm);
+	$('#manage-sites').html(addForm).find('.ui-button').button();
 }
 
 
