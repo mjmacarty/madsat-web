@@ -257,6 +257,7 @@ var statusUpdate = {
 			}).done(function(){
 				$.ajax({
 						type: 'get',
+						async: true,
 						url: statusUpdate.session + '/status.txt',
 						cache: false,
 						success: function(data){
@@ -265,7 +266,7 @@ var statusUpdate = {
 							console.log(statusUpdate.numRecords);
 							$('#records-status').html(statusUpdate.numRecords);
 							statusUpdate.executedQueries = $(data).find('adjustedQueries').last().text();
-							console.log(statusUpdate.executedQueries);
+							console.log(statusUpdate.session);
 							$('#queries-executing').html(statusUpdate.executedQueries);
 						}
 						
@@ -316,6 +317,18 @@ var addSite = function(){
 	'<button class="ui-button">Add to Datasites</button>';
 	$('#manage-sites').html(addForm).find('.ui-button').button();
 }
+
+//clean up functions
+var planHTML = function(){
+	$('#graphicsDisplay').html('<h1>Distributed Query Plan</h1>' +
+    '<p>This panel will display the optimized xml plan for query execution. Details of specific queries can be determined from this plan.  </p>');
+}; 
+
+var clearResults = function(){
+	$('#query-results').html('<p>Translate a natural language query or select the SQL tab to execute raw SQL.</p>');
+	$('.show-query').html('');
+	$('#selectable').html('');
+};
 
 
 
@@ -383,49 +396,7 @@ function cleanQueryResults() {
 }
 
 
-function auto_FunctionOLD() {
-	var dbSelect = $('#database-list').val();
-	switch (dbSelect) {
-	case "geoquery":
-		$.get('inputGeoqueryQuery.txt', function(data) {
-			var queryString = data;
-			var cleanString = "";
-			cleanString = queryString.match(/^NL.*/gm);
-			var nlString = cleanString.map(function(el) {
-				return el.replace('NL:', '');
-			});
 
-			$('#string').autocomplete({
-				source : nlString
-			});
-
-		});// end get
-		break;
-	case "madsat":
-		$.get('inputMadsatQuery.txt', function(data) {
-			var queryString = data;
-			var cleanString = "";
-			cleanString = queryString.match(/^NL.*/gm);
-			var nlString = cleanString.map(function(el) {
-				return el.replace('NL:', '');
-			});
-
-			$('#string').autocomplete({
-				source : nlString
-			});
-
-		});// end get
-		break; 
-	default:
-		var list = [ "Work in progress for this database",
-				"Values will be popluated intelligently",
-				"Based on user input",
-				"Functionality to be demonstrated at one year demo" ];
-		$('#string').autocomplete({
-			source : list
-		});
-	}
-} 
 
 $(function (){
 	$('button')
@@ -436,15 +407,15 @@ $(function (){
 		});
 });
 
-function googleSearchWindow(urlString){
+/*function googleSearchWindow(urlString){
 	MyWindow=window.open(urlString,'MyWindow','toolbar=no,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=no,resizable=no,width=600,height=600,left=1000,top=600'); 
 	return true;
-};
+};*/
 
-function addURLtoDiv(urlString){
+/*function addURLtoDiv(urlString){
 	$.get(urlString, function(data) {
 	$('#graphicsDisplay').html(data); //this causes the session tag to be lost
 	});
 	return false;
 	
-};
+}*/

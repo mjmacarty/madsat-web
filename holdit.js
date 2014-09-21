@@ -12,3 +12,49 @@ var addSite = function(){
     		
 	$('#manage-sites').html(addForm);	
 }
+
+// some kind of something Ria was trying
+
+function auto_FunctionOLD() {
+	var dbSelect = $('#database-list').val();
+	switch (dbSelect) {
+	case "geoquery":
+		$.get('inputGeoqueryQuery.txt', function(data) {
+			var queryString = data;
+			var cleanString = "";
+			cleanString = queryString.match(/^NL.*/gm);
+			var nlString = cleanString.map(function(el) {
+				return el.replace('NL:', '');
+			});
+
+			$('#string').autocomplete({
+				source : nlString
+			});
+
+		});// end get
+		break;
+	case "madsat":
+		$.get('inputMadsatQuery.txt', function(data) {
+			var queryString = data;
+			var cleanString = "";
+			cleanString = queryString.match(/^NL.*/gm);
+			var nlString = cleanString.map(function(el) {
+				return el.replace('NL:', '');
+			});
+
+			$('#string').autocomplete({
+				source : nlString
+			});
+
+		});// end get
+		break; 
+	default:
+		var list = [ "Work in progress for this database",
+				"Values will be popluated intelligently",
+				"Based on user input",
+				"Functionality to be demonstrated at one year demo" ];
+		$('#string').autocomplete({
+			source : list
+		});
+	}
+} 

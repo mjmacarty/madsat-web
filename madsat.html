@@ -21,7 +21,9 @@
             getDb('#sql-database-list');
             getDb('#database-list');
             
-      $(document).tooltip();      
+      $(document).tooltip();
+      $('#query-list').resizable();
+      //$('#sql').resizable();
             
             //update status content based on active tab
             $('#library-tab').click(function(){
@@ -37,12 +39,15 @@
     			statusDisplay.change(statusDisplay.libraryTab);
     			$('#result-link').remove();
 				clearQueryList();
-    			
+    			planHTML();
+    			clearResults();
     		});
     		
     		$('#query-list').change(function(){
     			statusDisplay.change(statusDisplay.libraryTab);
     			$('#result-link').remove();
+    			planHTML();
+    			clearResults();
     		});
             
             auto_Function();
@@ -96,7 +101,7 @@
 
 <div id="tabs" class="tabs-css">
     <ul>
-        <li id="library-tab"><a href="#tabs-5">Library</a></li>
+        <li id="library-tab"><a href="#tabs-5">Natural Language Query</a></li>
 		<li id="analytics-tab"><a href="#tabs-6">Analytics</a></li>
 		<li id ="constrained-tab"><a href="#tabs-1">Constrained</a></li>
         <li id="nlq-tab"><a href="#tabs-2">NLQ</a></li>
@@ -225,11 +230,13 @@
 	<option value="null">Select...</option>
 	</select>  
 	  <br><br>
-    	<div style="width:100%">
+    	
     	<label for="sql" style="vertical-align: top;">Enter SQL:</label><br>
-    	<textarea id="sql" rows="5" style="width:96%"></textarea><br>
-    	<button id="execute-sql" style="margin-top:10px;">Execute</button>
+    	<div style="width:100%">
+    	<textarea id="sql" cols="31" rows="5" style="width:96%" placeholder="Type an SQL statement to execute"></textarea><br>
     	</div>
+    	<button id="execute-sql" style="margin-top:10px;">Execute</button>
+    	
     	<script>
     		$('#execute-sql').click(function(){
     			execFunction();
@@ -240,18 +247,18 @@
     
     <!-- Library saved queries tab -->
      <div id="tabs-5">
-    	<h1>Canned library</h1>
-    	<p class="description">Library of predefined queries. Select database and desired query by typing in 	text boxes.</p>
+    	<h1>Natural Language Interface</h1>
+    	<p class="description">Please choose desired domain from the drop down menu, then enter free-form natural language expression or query by typing in text box indicated below.</p>
 	<label for="database-list">Select Domain:</label><br>
 	<select id="database-list" style="width:150px; height:25px;">
 	<option value="null">Select...</option>
 	</select>  
 	  <br><br>
-	<label for="query-list">Select Query:</label><br>
-	<div style="width:100%">
-	<textarea cols="31" rows="3" id="query-list" style="width:96%;"></textarea>
+	<label for="query-list"></label><br>
+	<div style="width:100%;">
+	<textarea cols="31" rows="3" id="query-list" style="width:96%;" placeholder="Type natural language query"></textarea>
 	</div>
-	<button id="translate" class="ui-button" style="margin-top:8px;">Translate</button>
+	<button id="translate" class="ui-button">Translate</button>
 	<div id="ul-container">
             <ul id="selectable">
                 
@@ -274,7 +281,7 @@
                    
                    // /(^DATABASE:.*\r\n)(^NL.*)/gm
                    // http://regex101.com/r/mN4hS2
-                   //modified 2/12/14
+                   
                    regex = new RegExp('(^DATABASE:'+ db +'\r\n)(^NL.*)' ,'gm');
                                
                    cleanString = queryString.match(regex);
@@ -584,9 +591,9 @@
     <!-- Manage Data Sites -->
     <h1>Manage Data Sites</h1>
     <br><br>
-    <button id="add-site">Add</button>
+    <button id="add-site">Add Sites</button>
     <button id="delete-site">Delete</button>
-    <button id="view-sites">View</button>
+    <button id="view-sites">View and Remove Sites</button>
     <div id="manage-sites" style="margin-top:20px; width:100%">
     
     </div>
@@ -613,8 +620,8 @@
 	<div id="np-results">
 	
 	
-	<button id="prev" value="-100">Prev</button>
-	<button id="next" value="100">Next</button>
+	<button id="prev" value="-10">Prev</button>
+	<button id="next" value="10">Next</button>
 	
 	</div>
 	
@@ -622,7 +629,7 @@
 	</div>
 	<div id="show-query"><p class="show-query"></p></div>
 	<div id="query-results" style="overflow:auto">
-	<p>Select query from Library tab or Analytics tab to display results.</p>
+	<p>Translate a natural language query or select the SQL tab to execute raw SQL.</p>
 	</div>
 
 	
@@ -644,8 +651,8 @@
 </div>
 
 <div id="graphicsDisplay">
-	<h1>Geospatial Area of Interest</h1>
-    <p>This panel will display, if relevant, a graphic of interest. Panel may be split into two as development progresses, a top and bottom to allow output of Bayesian Model and other relevant graphic such as an interactive map.</p>
+	<h1>Distributed Query Plan</h1>
+    <p>This panel will display the optimized xml plan for query execution. Details of specific queries can be determined from this plan.  </p>
 </div>
 
 </div> <!--end of main-->
