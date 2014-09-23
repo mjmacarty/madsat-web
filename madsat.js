@@ -133,8 +133,11 @@ var getDb = function(select){
 				var dbDynamo ='';
 				dbExp = new RegExp('(DATABASE:.*)','gm');
 				dbDynamo = string.match(dbExp);
+				cleanBreaks = new RegExp('(\r?\n|\r)','gm');
+				stringNow = dbDynamo.toString();
+				//console.log(dbDynamo);
 				dbDynamo = dbDynamo.map(function(el){return el.replace('DATABASE:','');});
-
+				
 				var outArray = [];
 				for(i=0; i < dbDynamo.length; i++){
 					if ($.inArray(dbDynamo[i],outArray)== -1){
@@ -154,6 +157,8 @@ var getDb = function(select){
 	});
 	
 };
+
+
 
 var fetch = function(){
 	  $('#fetch').html('Fetching&nbsp;' + '<img src="images/fetch.gif" width="100">');
@@ -257,7 +262,6 @@ var statusUpdate = {
 			}).done(function(){
 				$.ajax({
 						type: 'get',
-						async: true,
 						url: statusUpdate.session + '/status.txt',
 						cache: false,
 						success: function(data){
@@ -348,7 +352,8 @@ function auto_Function() {
            regex = new RegExp('(^DATABASE:'+ db +'\r\n)(^NL.*)' ,'gm');
                        
            cleanString = queryString.match(regex);
-            
+           
+                     
            var nlString = cleanString.map(function(el) {return el.replace('DATABASE:' + db,'');});
            nlString = nlString.map(function(el){return el.replace('NL:',''); });
            

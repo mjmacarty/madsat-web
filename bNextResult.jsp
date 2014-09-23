@@ -60,7 +60,7 @@
 		results = pr.processXML(resultPath);
 	}
 %>
-  <script src="a.js" type="text/javascript"></script>
+ 
  <table class="resultTable">
  	<thead>
  

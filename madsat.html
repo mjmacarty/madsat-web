@@ -14,13 +14,16 @@
     <script type="text/javascript">
     // jquery-ui places tabs on page
        $(document).ready(function(){
+    	   
             $("#tabs").tabs();
                         
             //get available datasources
             getDb('#nlq-database-list');
             getDb('#sql-database-list');
             getDb('#database-list');
-            
+      		
+            $('#query-list').on('mouseup', function() { $(this).select(); });
+      		
       $(document).tooltip();
       $('#query-list').resizable();
       //$('#sql').resizable();
@@ -138,7 +141,7 @@
 		</select>  
 	  	<br><br>
 	    <label for="nlq-string">Enter query: </label><br>
-	    <input type="text" id="string" size="30"><br>
+	    
 	    <input type="text" id="nlq-string" size="30"><br><br>
 	    <button id="nlq-execute" >Execute</button>
 	       
@@ -285,26 +288,31 @@
                    regex = new RegExp('(^DATABASE:'+ db +'\r\n)(^NL.*)' ,'gm');
                                
                    cleanString = queryString.match(regex);
-                    
-                   var nlString = cleanString.map(function(el) {return el.replace('DATABASE:' + db,'');});
-                   nlString = nlString.map(function(el){return el.replace('NL:',''); });
-                   nlString = nlString.map(function(el){return el.replace('\\r','').replace('\\n','');});
+                   //console.log(cleanString);
                    
-                   console.log(nlString.pop());
+   				   var nlString = cleanString.map(function(el) {return el.replace('DATABASE:' + db,'');});
+                                   
+                   nlString = nlString.map(function(el){return el.replace('NL:','').trim(); });
+                   
+                                     
                    $('#query-list').autocomplete({
                     source:nlString,
                     
                     }); 
-             
+                   
+                                  
                  }); // end change
                 
+                 
             });//end get
+            
+               
           
 	  //post selection database and query
 	       
             $('#translate').click(function(){
             	$('#translate').button("option", "disabled", true);
-            	
+            		
 	    			transFunction();
 	    			$('#result-link').remove();
 	    			statusDisplay.change(statusDisplay.libraryTab);
@@ -325,7 +333,7 @@
             
             $('#execute-canned').click(function(){
             	$('#result-link').remove();
-            	statusDisplay.change(statusDisplay.libraryTab);
+            	//statusDisplay.change(statusDisplay.libraryTab);
             	var cao = '<br>'; 
             	cao += new Date();
 					$('#cao').html(cao);
@@ -657,6 +665,13 @@
 
 </div> <!--end of main-->
 </div> <!--end of wrapper-->
+
+<script>$(document).ready(function(){
+	//dealing with textarea 
+	$('#query-list').val('');
+	
+	});</script>
+}
 </body>
 </html>
 

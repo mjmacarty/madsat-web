@@ -41,6 +41,7 @@
 	List<String> lines = execute.processTranslation(query, user, pword,
 			planPath);
 	String statusLink="http://192.168.0.101:8080" +request.getContextPath()+"/" +sessionDir + "/status.txt";
+	//String statusLink="localhost:8080" +request.getContextPath()+"/" +sessionDir + "/status.txt";
 %>
 <session style="color:#fcfdfd;"><%=sessionDir%></session>
 
