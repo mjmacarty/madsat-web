@@ -29,6 +29,7 @@ body,p li, h1 div {
 	width: 30%;
 	height: 689px;
 	margin-right: 3px;
+	
 }
 
 #query-results-container{
@@ -130,6 +131,16 @@ textarea{
 	  
 }
 
+#manage-sites-container{
+	width:100%;
+
+	}
+#manage-sites{
+	height:500px;
+	width:374px;
+	overflow:auto;
+	
+}
 
 .manage-sites {
 	float:center;

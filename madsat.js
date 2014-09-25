@@ -299,7 +299,7 @@ var clearQueryList = function(){
 
 // manage datasites functions
 var getDataSites = function(){
-	var sql = "SELECT * FROM sites;"
+	var sql = "SELECT sites.Database,sites.Table,sites.IP,sites.Server FROM sites;"
 	$.ajax({
 		type : post,
 		data : {q:sql},
@@ -311,6 +311,62 @@ var getDataSites = function(){
 		}//end success function
 	}); //end getDataSites ajax call	
 };
+
+var manageSites = {
+		
+		getSites: function(){
+			$.ajax({
+				type : 'get',
+				dataType:'xml',
+				url : 'sites.xml',
+				cache : false,
+				error : function(){ console.log(arguments)},
+				success : function(data){
+						console.log(arguments);
+						var key = [];
+						var htm = '<table style="width:auto;"><thead><tr>';
+						var key = $(data).find('ROW:first>*').map(function(){return this.nodeName}).get();
+						//console.log(key);
+						//console.log(key.length);
+						for(i=0; i< key.length; i++){
+						        htm +='<th style="font-size:9pt;">' + key[i] + '</th>';
+						    };
+						    	htm += '<th style="font-size:9pt;">Remove</th></tr></thead><tbody>';
+						
+						    	$(data).find('ROW').each(function(){
+				                    var row = $(this);
+				                    
+				                    htm+= '<tr>';
+				                    $(data).find(row).children().each(function(){
+				                    
+				                    htm+= '<td style="font-size:8pt;">' + $(this).text() + '</td>';
+				                    
+				                        }); //end each column
+				                    htm+='<td style="text-align:center;"><input type="checkbox"></td>'
+				                    htm+= '</tr>'
+				                    });  //end each row 		
+						    		htm +='</tbody></table>';
+								$('#manage-sites').html(htm);
+						
+				}//end success function
+		});
+	},
+	
+	deleteSite : function(){
+		var deleteSQL = '';
+		var selected = $('tr').has(':checkbox:checked').find('td').each(function(){
+			deleteSQL +='"'
+			deleteSQL += $(this).text()
+			deleteSQL += '",';
+		});
+		
+		console.log(deleteSQL);
+		//$.post({q:deleteSQL},'deleteSites.jsp')done(manageSites.getSites(););
+		
+		
+	} //end selected
+	
+}
 
 var addSite = function(){
 	var addForm ='<br><input id="site-db" class="manage-sites" type="text" placeholder="Domain" onfocus="this.placeholder=\'\'"  onblur="this.placeholder = \'Domain\'"><br>' +

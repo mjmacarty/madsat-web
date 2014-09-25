@@ -74,8 +74,10 @@
 					
 			$.post('deleteFiles.jsp');
 				  
-		  $('#graphicsDisplay').html('<h1>Geospatial Area of Interest</h1>' +
-    '<p>This panel will display, if relevant, a graphic of interest.')
+		  $('#graphicsDisplay').html('<h1>Distributed Query Plan</h1>' +
+    '<p>This panel displays the optimized xml plan for query execution.' +
+    'Details of specific queries can be determined from this plan.</p>');
+
 		  
 		  }); //end click for clearing panels	
                     
@@ -173,8 +175,8 @@
                html += '<table><tbody><tr>';
                
                var keys = $(data).find('row:first>*').map(function(){return this.nodeName}).get();
-               console.log(keys);
-               console.log(keys.length);
+               //console.log(keys);
+               //console.log(keys.length);
                for (i=0; i<keys.length; i++){
                
                html += '<th class="' + keys[i] +'">' + keys[i] + '</th>' 
@@ -597,18 +599,32 @@
     
     <div id="tabs-7">
     <!-- Manage Data Sites -->
+    <section id="manage-sites-container">
     <h1>Manage Data Sites</h1>
     <br><br>
-    <button id="add-site">Add Sites</button>
-    <button id="delete-site">Delete</button>
-    <button id="view-sites">View and Remove Sites</button>
-    <div id="manage-sites" style="margin-top:20px; width:100%">
+    <button id="add-site">Add Site</button>
+    <button id="view-sites">View</button>
+    <button id="remove-sites">Remove</button>
+    <div id="manage-sites" style="margin-top:20px; width:100%; overflow:auto;">
     
     </div>
+    </section>
     <script>
     	$('#add-site').click(function(){
-    		addSite();	
-    	})
+    		//addSite();
+    		
+    	});
+    	
+    	$('#view-sites').click(function(){
+    		manageSites.getSites();
+    		//manageSites.showSites();
+    	});
+    	
+    	$('#remove-sites').click(function(){
+    		manageSites.deleteSite();
+    	
+    		});
+    	
     	
     </script>
     
@@ -671,7 +687,7 @@
 	$('#query-list').val('');
 	
 	});</script>
-}
+
 </body>
 </html>
 
