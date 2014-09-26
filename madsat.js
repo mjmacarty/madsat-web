@@ -297,7 +297,8 @@ var clearQueryList = function(){
 	
 };
 
-// manage datasites functions
+// manage datasites functions 
+// these are the fields that are displayed in the UI table
 var getDataSites = function(){
 	var sql = "SELECT sites.Database,sites.Table,sites.IP,sites.Server FROM sites;"
 	$.ajax({
@@ -314,7 +315,12 @@ var getDataSites = function(){
 
 var manageSites = {
 		
-		getSites: function(){
+		userCred : '<input class="cred" type="text" id="user" placeholder="username"/>'+
+					'<input  class="cred" type="text" id="pass" placeholder="password"/>',
+      
+			
+		//use this to get data for table that displays when view tables is clicked
+		getSites : function(){
 			$.ajax({
 				type : 'get',
 				dataType:'xml',
@@ -324,7 +330,8 @@ var manageSites = {
 				success : function(data){
 						console.log(arguments);
 						var key = [];
-						var htm = '<table style="width:auto;"><thead><tr>';
+						var htm = '';
+						htm += '<table style="width:auto;"><thead><tr>';
 						var key = $(data).find('ROW:first>*').map(function(){return this.nodeName}).get();
 						//console.log(key);
 						//console.log(key.length);
@@ -354,6 +361,7 @@ var manageSites = {
 	
 	deleteSite : function(){
 		var deleteSQL = '';
+		deleteSQL = $('#user').val() + '#' + $('#pass').val() + '#';
 		var selected = $('tr').has(':checkbox:checked').find('td').each(function(){
 			deleteSQL +='"'
 			deleteSQL += $(this).text()
@@ -361,22 +369,39 @@ var manageSites = {
 		});
 		
 		console.log(deleteSQL);
-		//$.post({q:deleteSQL},'deleteSites.jsp')done(manageSites.getSites(););
+		// use this to get things to be deleted 
+		//$.post({q:deleteSQL},'deleteSites.jsp').done(manageSites.getSites(););
 		
 		
-	} //end selected
+	}, //end selected
 	
-}
+	addSiteForm : function(){
+		var addForm ='<br><input id="site-db" class="manage-sites" type="text" placeholder="Domain" onfocus="this.placeholder=\'\'"  onblur="this.placeholder = \'Domain\'"><br>' +
+		'<input id="site-table" class="manage-sites" type="text" placeholder="Table" onfocus="this.placeholder=\'\'" onblur="this.placeholder = \'Table\'"><br>' +
+		'<input id="site-IP" class="manage-sites" type="text" placeholder="IP Address" onfocus="this.placeholder=\'\'" onblur="this.placeholder = \'IP Address\'"><br>' +
+		'<input id="site-Server" class="manage-sites" type="text" placeholder="Server" onfocus="this.placeholder=\'\'" onblur="this.placeholder = \'Server\'"><br>' +
+		'<input id="site-password" class="manage-sites" type="text" placeholder="Password" onfocus="this.placeholder=\'\'" onblur="this.placeholder = \'Password\'"><br>' +
+		//'<button class="ui-button" id="add-site">Add to Datasites</button>';
+		$('#manage-sites').html(addForm).find('.ui-button').button();
+		$('#user-cred').html(manageSites.userCred);
+	},
+	
+	addSite : function(){
+		 var addString = $('#user').val();
+		 addString += '#' + $('#pass').val();
+		 addString += '#' + $('#site-db').val();
+		 addString += ',' + $('#site-table').val();
+		 addString += ',' + $('#site-IP').val();
+		 addString += ',' + $('#site-Server').val();
+		 addString += ',' + $('#site-password').val();
+		 
+		 console.log(addString);
+		 //$.post({q:addString},'addSite.jsp').done(manageSites.resetAddForm(););
+	}
+	
+}; // end manageSites
 
-var addSite = function(){
-	var addForm ='<br><input id="site-db" class="manage-sites" type="text" placeholder="Domain" onfocus="this.placeholder=\'\'"  onblur="this.placeholder = \'Domain\'"><br>' +
-	'<input id="site-table" class="manage-sites" type="text" placeholder="Table" onfocus="this.placeholder=\'\'" onblur="this.placeholder = \'Table\'"><br>' +
-	'<input id="site-IP" class="manage-sites" type="text" placeholder="IP Address" onfocus="this.placeholder=\'\'" onblur="this.placeholder = \'IP Address\'"><br>' +
-	'<input id="site-Server" class="manage-sites" type="text" placeholder="Server" onfocus="this.placeholder=\'\'" onblur="this.placeholder = \'Server\'"><br>' +
-	'<input id="site-password" class="manage-sites" type="text" placeholder="Password" onfocus="this.placeholder=\'\'" onblur="this.placeholder = \'Password\'"><br>' +
-	'<button class="ui-button">Add to Datasites</button>';
-	$('#manage-sites').html(addForm).find('.ui-button').button();
-}
+
 
 //clean up functions
 var planHTML = function(){
@@ -445,8 +470,10 @@ function clean() {
 	
 	$('#graphicsDisplay')
 			.html(
-					'<h1>Geospatial Area of Interest</h1>'
-							+ '<p>This panel will display, if relevant, a graphic of interest.</p>');
+					'<h1>Distributed Query Plan</h1>'
+							+ '<p>This panel displays the optimized xml plan for query' +
+							'execution.Details of specific queries can be determined from' +
+							'this plan.</p>');
 }
 
 function cleanQueryResults() {

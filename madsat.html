@@ -602,19 +602,28 @@
     <section id="manage-sites-container">
     <h1>Manage Data Sites</h1>
     <br><br>
-    <button id="add-site">Add Site</button>
+    <button id="add-form">Add Site</button>
     <button id="view-sites">View</button>
     <button id="remove-sites">Remove</button>
+    <div id="user-cred">
+    <input class="cred" type="text" id="user" placeholder="username"/>
+	<input  class="cred" type="text" id="pass" placeholder="password"/>
+    
+    
+    </div>
     <div id="manage-sites" style="margin-top:20px; width:100%; overflow:auto;">
     
     </div>
     </section>
     <script>
-    	$('#add-site').click(function(){
-    		//addSite();
-    		
+    	$('#add-form').click(function(){
+    		//manageSites.addSiteForm();
     	});
     	
+    	$('#add-site').click(function(){
+    		//manageSites.addSite();
+    	});
+    	    	   	
     	$('#view-sites').click(function(){
     		manageSites.getSites();
     		//manageSites.showSites();
