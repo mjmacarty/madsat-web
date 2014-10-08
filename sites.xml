@@ -1,0 +1,177 @@
+<DATA>
+
+	<ROW>
+		<IP>192.168.0.101</IP>
+		<Server>ria</Server>
+	</ROW>
+
+	<ROW>
+		<IP>192.168.0.101</IP>
+		<Server>ria</Server>
+	</ROW>
+
+	<ROW>
+		<IP>192.168.0.103</IP>
+		<Server>cloudServer</Server>
+	</ROW>
+
+	<ROW>
+		<IP>192.168.0.100</IP>
+		<Server>subrata</Server>
+	</ROW>
+
+	<ROW>
+		<IP>192.168.0.101</IP>
+		<Server>ria</Server>
+	</ROW>
+
+	<ROW>
+		<IP>192.168.0.107</IP>
+		<Server>matthew</Server>
+	</ROW>
+
+	<ROW>
+		<IP>192.168.0.103</IP>
+		<Server>cloudServer</Server>
+	</ROW>
+
+	<ROW>
+		<IP>192.168.0.100</IP>
+		<Server>subrata</Server>
+	</ROW>
+
+	<ROW>
+		<IP>192.168.0.107</IP>
+		<Server>matthew</Server>
+	</ROW>
+
+	<ROW>
+		<IP>192.168.0.101</IP>
+		<Server>ria</Server>
+	</ROW>
+
+	<ROW>
+		<IP>192.168.0.103</IP>
+		<Server>cloudServer</Server>
+	</ROW>
+
+	<ROW>
+		<IP>192.168.0.100</IP>
+		<Server>subrata</Server>
+	</ROW>
+
+	<ROW>
+		<IP>192.168.0.107</IP>
+		<Server>matthew</Server>
+	</ROW>
+
+	<ROW>
+		<IP>192.168.0.101</IP>
+		<Server>ria</Server>
+	</ROW>
+
+	<ROW>
+		<IP>192.168.0.103</IP>
+		<Server>cloudServer</Server>
+	</ROW>
+
+	<ROW>
+		<IP>192.168.0.100</IP>
+		<Server>subrata</Server>
+	</ROW>
+
+	<ROW>
+		<IP>192.168.0.107</IP>
+		<Server>matthew</Server>
+	</ROW>
+
+	<ROW>
+		<IP>192.168.0.101</IP>
+		<Server>ria</Server>
+	</ROW>
+
+	<ROW>
+		<IP>192.168.0.100</IP>
+		<Server>subrata</Server>
+	</ROW>
+
+	<ROW>
+		<IP>192.168.0.101</IP>
+		<Server>ria</Server>
+	</ROW>
+
+	<ROW>
+		<IP>192.168.0.103</IP>
+		<Server>cloudServer</Server>
+	</ROW>
+
+	<ROW>
+		<IP>192.168.0.104</IP>
+		<Server>dbServer</Server>
+	</ROW>
+
+	<ROW>
+		<IP>192.168.0.105</IP>
+		<Server>webServer</Server>
+	</ROW>
+
+	<ROW>
+		<IP>192.168.0.100</IP>
+		<Server>subrata</Server>
+	</ROW>
+
+	<ROW>
+		<IP>192.168.0.101</IP>
+		<Server>ria</Server>
+	</ROW>
+
+	<ROW>
+		<IP>192.168.0.101</IP>
+		<Server>ria</Server>
+	</ROW>
+
+	<ROW>
+		<IP>192.168.0.101</IP>
+		<Server>ria</Server>
+	</ROW>
+
+	<ROW>
+		<IP>192.168.0.103</IP>
+		<Server>cloudServer</Server>
+	</ROW>
+
+	<ROW>
+		<IP>192.168.0.100</IP>
+		<Server>subrata</Server>
+	</ROW>
+
+	<ROW>
+		<IP>192.168.0.100</IP>
+		<Server>subrata</Server>
+	</ROW>
+
+	<ROW>
+		<IP>192.168.0.100</IP>
+		<Server>subrata</Server>
+	</ROW>
+
+	<ROW>
+		<IP>192.168.0.101</IP>
+		<Server>ria</Server>
+	</ROW>
+
+	<ROW>
+		<IP>192.168.0.100</IP>
+		<Server>subrata</Server>
+	</ROW>
+
+	<ROW>
+		<IP>localhost</IP>
+		<Server>matthew</Server>
+	</ROW>
+
+	<ROW>
+		<IP>localhost</IP>
+		<Server>matthew</Server>
+	</ROW>
+</DATA>

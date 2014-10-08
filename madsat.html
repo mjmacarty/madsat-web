@@ -5,15 +5,23 @@
 	<meta charset="utf-8">
     <title>MADSAT User Interface</title>
     
-    <link rel="stylesheet"  type="text/css" href="styles/jquery-ui-1.10.3.custom.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/jquery-ui-1.10.3.custom.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="styles/madsat.css"/>
     <script type="text/javascript" src="books/javascript/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="books/javascript/bootstrap.min.js"></script>
+    <script type="text/javascript" src="books/javascript/typeahead.js"></script>
+    <script type="text/javascript" src="books/javascript/typeahead-helper.js"></script>
     <script type="text/javascript" src="books/javascript/jquery-ui-1.10.3/js/jquery-ui-1.10.3.custom.js"></script>
+    
+    
+    
     <script type="text/javascript" src="madsat.js"></script>
     
     <script type="text/javascript">
     // jquery-ui places tabs on page
        $(document).ready(function(){
+    	  
     	   
             $("#tabs").tabs();
                         
@@ -97,6 +105,12 @@
         
     </script>
     
+    <!--[if lt IE 9]>
+}
+<script src="dist/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js1.4.2/respond.min.js"></script>
+<![endif]-->
+    
 </head>
 
 <body>
@@ -108,10 +122,11 @@
     <ul>
         <li id="library-tab"><a href="#tabs-5">Natural Language Query</a></li>
 		<li id="analytics-tab"><a href="#tabs-6">Analytics</a></li>
+		<li id="sql-tab"><a href="#tabs-4">SQL</a></li>
 		<li id ="constrained-tab"><a href="#tabs-1">Constrained</a></li>
         <li id="nlq-tab"><a href="#tabs-2">NLQ</a></li>
         <li id="keyword-tab"><a href="#tabs-3">Keyword</a></li>
-        <li id="sql-tab"><a href="#tabs-4">SQL</a></li>
+        
         <li id="manage-tab"><a href="#tabs-7">Manage Data Sites</a></li>
         
 	
@@ -144,7 +159,7 @@
 	  	<br><br>
 	    <label for="nlq-string">Enter query: </label><br>
 	    
-	    <input type="text" id="nlq-string" size="30"><br><br>
+	    <input class="form-control" type="text" id="nlq-string" size="30"><br><br>
 	    <button id="nlq-execute" >Execute</button>
 	       
 	    <script>
@@ -205,10 +220,6 @@
         
                 
                }//end success
-            
-    
-            
-                              
            });//end ajax
 	       
 	       //} //  end checkFile
@@ -261,7 +272,7 @@
 	  <br><br>
 	<label for="query-list"></label><br>
 	<div style="width:100%;">
-	<textarea cols="31" rows="3" id="query-list" style="width:96%;" placeholder="Type natural language query"></textarea>
+	<textarea cols="31" rows="3" id="query-list" style="width:100%;" placeholder="Type natural language query"></textarea>
 	</div>
 	<button id="translate" class="ui-button">Translate</button>
 	<div id="ul-container">
@@ -604,10 +615,9 @@
     <br><br>
     <button id="add-form">Add Site</button>
     <button id="view-sites">View</button>
-    <button id="remove-sites">Remove</button>
+    <button id="add-to-plan">Update</button>
     <div id="user-cred">
-    <input class="cred" type="text" id="user" placeholder="username"/>
-	<input  class="cred" type="text" id="pass" placeholder="password"/>
+    
     
     
     </div>
@@ -629,8 +639,8 @@
     		//manageSites.showSites();
     	});
     	
-    	$('#remove-sites').click(function(){
-    		manageSites.deleteSite();
+    	$('#add-to-plan').click(function(){
+    		manageSites.addToPlan();
     	
     		});
     	
@@ -653,7 +663,7 @@
 	<div id="np-results">
 	
 	
-	<button id="prev" value="-10">Prev</button>
+	<button class="btn btn-xs btn-default" id="prev" value="-10"><span style="color:#4297d7;font-size:1.5em;" class="glyphicon glyphicon-chevron-left"></span></button>
 	<button id="next" value="10">Next</button>
 	
 	</div>

@@ -1,0 +1,21 @@
+	<status>
+	<process>
+		<id>tempSelect1</id>
+		<type>jdbc:mysql#Direct</type>
+		<query>SELECT borderinfo.State_Name, borderinfo.Border FROM borderinfo WHERE borderinfo.Border = 'New York'</query>
+		<location>localhost</location>
+		<state>completed</state>
+		<adjustedQueries>2</adjustedQueries>
+		<subTotal>5</subTotal>
+	</process>
+	<process>
+		<id>tempSelectJoin11</id>
+		<type>jdbc:mysql#Direct</type>
+		<query>SELECT state.Capital FROM tempSelect1 JOIN state ON tempSelect1.State_Name = state.State_Name</query>
+		<location>localhost</location>
+		<state>completed</state>
+		<adjustedQueries>2</adjustedQueries>
+		<subTotal>5</subTotal>
+	</process>
+<total>5</total>
+</status>

@@ -1,0 +1,23 @@
+<!DOCTYPE html><html lang="en-us"><head><title>regex and converting strings to array and back and forth Javascript - Stack Overflow</title></head><th>regex and converting strings to array and back and forth Javascript - Stack Overflow<	h><body><p>I am reading data from a text file and I am interested in a specific pattern that I have isolated with the following:</p>
+<p>This results in the array: </p>
+<p>I then want to get rid of all patterns matching NL: so I am left with just a natural language question or statement. To accomplish this, I convert the array to a string , and then use .split() to create the desired array like so:</p>
+<p>There are two problems I am having. 1. I end up with an extra value of an empty string at index [0] in the resulting array, and 2. I now have a comma literal appended to the strings in the array:</p>
+<p>How can I eliminate these problems? Also If someone has a more elegant approach to reading a big ugly text file delimited by line breaks and isolating strings of interest I am all eyes. </p>
+<p>Thanks in advance for any suggestions. </p>
+<p>You don't have to convert the array to a string, then remove the <code>NL:</code> strings and convert back to an array, just iterate over the array and remove that string in each index</p>
+<p><a href="http://jsfiddle.net/zjFEQ/" rel="nofollow"><strong>FIDDLE</strong></a></p>
+<p>a regular for loop would also work if older browsers is an issue</p>
+<p>Warning : <code>map</code> is not supported by IE8 and below. Here is an alternative :</p>
+<p>Demo here : <a href="http://jsfiddle.net/wared/BYgLd/" rel="nofollow">http://jsfiddle.net/wared/BYgLd/</a>.</p>
+<p><span class="icon"></span><span>Sign up using Google</span></p>
+<p><span class="icon"></span><span>Sign up using Facebook</span></p>
+<p><span class="icon"></span><span>Sign up using Stack Exchange</span></p>
+<p class="privacy-policy-agreement"> By posting your answer, you agree to the <a href="http://stackexchange.com/legal/privacy-policy" target="_blank">privacy policy</a> and <a href="http://stackexchange.com/legal/terms-of-service" target="_blank">terms of service</a>.</p>
+<p class="label-key">asked</p>
+<p class="label-key" title="2014-01-01 16:05:12Z"><b>9 months ago</b></p>
+<p class="label-key">viewed</p>
+<p class="label-key"> <b>74 times</b> </p>
+<p class="label-key">active</p>
+<p class="label-key"><b><a href="?lastactivity" class="lastactivity-link" title="2014-01-02 14:00:18Z">9 months ago</a></b></p>
+<p id="newsletter-ad-header">Get the <b>weekly newsletter!</b></p>
+<p id="newsletter-preview-container">see an <a href="http://stackexchange.com/newsletters/newsletter?site=stackoverflow.com" id="newsletter-preview">example newsletter</a></p></body></html>

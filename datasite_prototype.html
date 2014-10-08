@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>
+data = [
+	{
+		'Database' : 'datasite',
+		'Table' : 'sites',
+		'IP' : '192.168.0.101',
+		'Server' : 'ria',
+		'Port' : '3306',
+		'User' : 'root',
+		'Password' : 'Ria',
+		'Size' : 50,
+		'Wrapper' : 'jdbc:mysql'
+	},
+	{
+		'Database' : 'datasite',
+		'Table' : 'columns',
+		'IP' : '192.168.0.101',
+		'Server' : 'ria',
+		'Port' : '3306',
+		'User' : 'root',
+		'Password' : 'Ria',
+		'Size' : 50,
+		'Wrapper' : 'jdbc:mysql'
+	},
+	{
+		'Database' : 'madsat',
+		'Table' : 'naimobility',
+		'IP' : '192.168.0.103',
+		'Server' : 'cloudServer',
+		'Port' : '2181',
+		'User' : 'root',
+		'Password' : 'HelpHelp',
+		'Size' : 50,
+		'Wrapper' : 'Accumulo'
+	}];
+
+var key;
+htm = '<table><tr';
+for(i=0; i< 1; i++){
+    for (key in data[0]){
+        htm+='<th>' + key + '</th>'
+    }
+}
+htm+='</tr></table>';
+$('#out2').html(htm);
+
+$('#out').html('holy crap');
+var html = '';
+html = '<table>';
+for(i=0; i<data.length; i++){
+    html+='<tr>';
+    html+='<td>' + data[i].Database + '</td>';
+    html+='<td>' + data[i].Table + '</td>';
+    html+='<td>' + data[i].Server + '</td>';
+    html+='<td>' + data[i].IP + '</td>';
+    html+='<td><input type="checkbox"></td>';
+    html+='</tr>';
+    
+    
+}
+html+='</table>';
+$('#out').html(html);
+
+

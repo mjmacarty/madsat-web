@@ -338,7 +338,7 @@ var manageSites = {
 						for(i=0; i< key.length; i++){
 						        htm +='<th style="font-size:9pt;">' + key[i] + '</th>';
 						    };
-						    	htm += '<th style="font-size:9pt;">Remove</th></tr></thead><tbody>';
+						    	htm += '<th style="padding:2px;font-size:9pt;">Add to Query Plan</th><th style="font-size:9pt;">Availability</th></tr></thead><tbody>';
 						
 						    	$(data).find('ROW').each(function(){
 				                    var row = $(this);
@@ -346,10 +346,11 @@ var manageSites = {
 				                    htm+= '<tr>';
 				                    $(data).find(row).children().each(function(){
 				                    
-				                    htm+= '<td style="font-size:8pt;">' + $(this).text() + '</td>';
+				                    htm+= '<td style="font-size:8pt; padding:2px;">' + $(this).text() + '</td>';
 				                    
 				                        }); //end each column
-				                    htm+='<td style="text-align:center;"><input type="checkbox"></td>'
+				                    htm+='<td class="check" style="text-align:center; width:80px;"><input style="width:20px;" type="checkbox"></td>'
+				                    htm+='<td><button>Ping</button></td>'	
 				                    htm+= '</tr>'
 				                    });  //end each row 		
 						    		htm +='</tbody></table>';
@@ -359,18 +360,28 @@ var manageSites = {
 		});
 	},
 	
-	deleteSite : function(){
-		var deleteSQL = '';
-		deleteSQL = $('#user').val() + '#' + $('#pass').val() + '#';
-		var selected = $('tr').has(':checkbox:checked').find('td').each(function(){
-			deleteSQL +='"'
-			deleteSQL += $(this).text()
-			deleteSQL += '",';
-		});
+	addToPlan : function(){
+		var activeSites = '';
 		
-		console.log(deleteSQL);
-		// use this to get things to be deleted 
-		//$.post({q:deleteSQL},'deleteSites.jsp').done(manageSites.getSites(););
+		$('tr').has(':checkbox:checked').each(function(){
+			$(this).find('td').not('.check').each(function(){
+		//var selected = $('tr').has(':checkbox:checked').find('td').not('.check').each(function(){
+			
+			activeSites +='"';
+			activeSites += $(this).text()
+			activeSites += '",';
+			
+		});
+		activeSites +='\r';
+		});
+		console.log(activeSites);
+		// use this to get sites to add to plan 
+		$.ajax({
+			type : 'post',
+			url : 'addSites.jsp',
+			data : {q : activeSites},
+		
+		});
 		
 		
 	}, //end selected

@@ -1,0 +1,20 @@
+	<row>
+		<Capital>Hartford</Capital>
+<Source>localhost jdbc:mysql#Direct joined with localhost jdbc:mysql#Direct</Source>
+	</row>
+	<row>
+		<Capital>Boston</Capital>
+<Source>localhost jdbc:mysql#Direct joined with localhost jdbc:mysql#Direct</Source>
+	</row>
+	<row>
+		<Capital>Trenton</Capital>
+<Source>localhost jdbc:mysql#Direct joined with localhost jdbc:mysql#Direct</Source>
+	</row>
+	<row>
+		<Capital>Harrisburg</Capital>
+<Source>localhost jdbc:mysql#Direct joined with localhost jdbc:mysql#Direct</Source>
+	</row>
+	<row>
+		<Capital>Montpelier</Capital>
+<Source>localhost jdbc:mysql#Direct joined with localhost jdbc:mysql#Direct</Source>
+	</row>

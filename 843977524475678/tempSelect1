@@ -1,0 +1,25 @@
+	<row>
+		<State_Name>Connecticut</State_Name>
+		<Border>New York</Border>
+<Source>localhost jdbc:mysql#Direct</Source>
+	</row>
+	<row>
+		<State_Name>Massachusetts</State_Name>
+		<Border>New York</Border>
+<Source>localhost jdbc:mysql#Direct</Source>
+	</row>
+	<row>
+		<State_Name>New Jersey</State_Name>
+		<Border>New York</Border>
+<Source>localhost jdbc:mysql#Direct</Source>
+	</row>
+	<row>
+		<State_Name>Pennsylvania</State_Name>
+		<Border>New York</Border>
+<Source>localhost jdbc:mysql#Direct</Source>
+	</row>
+	<row>
+		<State_Name>Vermont</State_Name>
+		<Border>New York</Border>
+<Source>localhost jdbc:mysql#Direct</Source>
+	</row>

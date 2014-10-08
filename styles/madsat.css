@@ -26,15 +26,15 @@ body,p li, h1 div {
 
 #tabs{
 	float:left;
-	width: 30%;
-	height: 689px;
+	width: 32%;
+	height: 100%;
 	margin-right: 3px;
 	
 }
 
 #query-results-container{
 	float:left;
-	width:35.5%;
+	width:37.75%;
 	padding: 0.5em 0.5em;
 	height: 100%;
 	border-radius: 4px;
@@ -65,7 +65,7 @@ body,p li, h1 div {
 
 #status{
 	float:right;
-	width:30.5%;
+	width:29.8%;
 	height:30%;
 	border-radius: 4px;
 	border: solid #4297D7 1px;
@@ -107,8 +107,8 @@ body,p li, h1 div {
 
 #graphicsDisplay{
 	float:right;
-	width:30.5%;
-	height: 67%;
+	width:29.8%;
+	height: 69.50%;
 	padding: 0.5em 0.5em;
 	border-radius: 4px;
 	border: solid #4297d7 1px;
@@ -118,6 +118,16 @@ body,p li, h1 div {
 
 /* FORM CONTROLS need to add div to wrap select */
 
+select {
+	border-radius:4px;
+	border: solid 1px #A6C9E2;
+}
+
+input[type="text"]{
+	border-radius:4px;
+	border: solid 1px #A6C9E2;	
+}
+
 textarea{
 	display:inline;
 	border: solid 1px #A6C9E2;
@@ -126,6 +136,7 @@ textarea{
 	vertical-align:text-top !important;
 	overflow:auto;
 	padding-left:2px;
+	height:75px;
 	
 	margin:0;
 	  
@@ -136,7 +147,7 @@ textarea{
 
 	}
 #manage-sites{
-	height:500px;
+	height:475px;
 	width:374px;
 	overflow:auto;
 	
@@ -187,16 +198,16 @@ li {
 		}
 
 #ul-container{
-                width: 360px;
-		height: 175px;
+                width: 380px;
+				height: 175px;
                 white-space:nowrap;
-		overflow:  auto;
-		border-style: solid;
+				overflow:  auto;
+				border-style: solid;
                 border-width: 1px;
                 border-radius: 4px;
                 border-color: #A6C9E2;
-		margin-top:  10px;
-		margin-bottom:  10px;
+				margin-top:  10px;
+				margin-bottom:  10px;
                 
             }
 
